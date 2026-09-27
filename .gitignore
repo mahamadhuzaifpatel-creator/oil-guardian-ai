@@ -12,3 +12,6 @@ dist/
 
 test_image.jpg
 test_paddleocr.py
+
+# Downloaded ONNX embedding model
+ml_modules/embedder_onnx/

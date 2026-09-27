@@ -1,8 +1,6 @@
-# CPU-only PyTorch (much smaller than the default GPU build)
---extra-index-url https://download.pytorch.org/whl/cpu
-torch==2.14.0+cpu
+# ML backend for Render free plan (512 MB): no PyTorch.
+# MiniLM embeddings run on ONNX Runtime instead (see ml_modules/shared_embedder.py).
 
-# Exact versions from the working local environment
 fastapi==0.141.1
 uvicorn[standard]==0.54.0
 pydantic==2.13.5
@@ -11,5 +9,7 @@ pandas==3.0.6
 scikit-learn==1.9.0
 joblib==1.6.0
 xgboost==3.4.1
-sentence-transformers==6.1.0
-transformers==5.17.0
+
+onnxruntime
+tokenizers
+huggingface_hub

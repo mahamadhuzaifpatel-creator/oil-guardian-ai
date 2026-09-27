@@ -49,6 +49,28 @@ app.add_middleware(
 )
 
 
+@app.on_event("startup")
+def warmup_models():
+    """
+    Optionally load every model at startup so the first real request is fast.
+    Enabled with WARMUP_MODELS=1 (set in the Hugging Face Dockerfile).
+    Left off on small servers, where loading everything at once may not fit.
+    """
+    if os.getenv("WARMUP_MODELS") != "1":
+        return
+
+    print("Warming up models...")
+    sample = "Worker observed near rotating equipment without guard."
+
+    try:
+        analyze_near_miss(sample)
+        analyze_unsafe_act(sample)
+        analyze_unsafe_condition(sample)
+        print("All models loaded and ready.")
+    except Exception as error:
+        print("Model warmup failed:", error)
+
+
 class AnalyzeRequest(BaseModel):
     text: str
 
