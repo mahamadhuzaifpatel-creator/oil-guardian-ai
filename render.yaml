@@ -3,7 +3,7 @@
     name: oil-guardian-ai-ml
     runtime: python
     plan: free
-    buildCommand: pip install -r requirements.txt
+    buildCommand: pip install -r requirements.txt && python -m ml_modules.shared_embedder
     startCommand: uvicorn backend.api:app --host 0.0.0.0 --port $PORT
 
   - type: web
