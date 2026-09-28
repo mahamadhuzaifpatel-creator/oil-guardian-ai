@@ -11,6 +11,7 @@ import TargetCursor from "./components/TargetCursor";
 import Login from "./pages/Login";
 import Employee from "./pages/Employee";
 import Officer from "./pages/Officer";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 import "./App.css";
 
@@ -31,8 +32,22 @@ function App() {
           <Route path="/" element={<Login />} />
           <Route path="/login" element={<Login />} />
 
-          <Route path="/employee" element={<Employee />} />
-          <Route path="/officer" element={<Officer />} />
+          <Route
+            path="/employee"
+            element={
+              <ProtectedRoute role="employee">
+                <Employee />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/officer"
+            element={
+              <ProtectedRoute role="safety_officer">
+                <Officer />
+              </ProtectedRoute>
+            }
+          />
         </Routes>
 
       </BrowserRouter>

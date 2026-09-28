@@ -38,6 +38,7 @@ export default function Employee() {
   const [report, setReport] = useState("");
 
   const [hasAnalyzed, setHasAnalyzed] = useState(false);
+  const [aiResult, setAiResult] = useState(null);
   const [risk, setRisk] = useState("");
   const [category, setCategory] = useState("");
   const [sifRisk, setSifRisk] = useState("");
@@ -116,9 +117,14 @@ export default function Employee() {
             item.risk_tier ||
             "Unknown Risk",
           status:
-            item.status === "submitted"
-              ? "Submitted"
-              : item.status || "Submitted",
+            ({
+              submitted: "Submitted",
+              under_review: "Under Investigation",
+              action_required: "Action Required",
+              closed: "Closed"
+            })[item.status] ||
+            item.status ||
+            "Submitted",
           text: item.report_text || "",
           location:
             item.facility_location || "",
@@ -291,6 +297,7 @@ export default function Employee() {
           "Operational Safety"
       );
 
+      setAiResult(data);
       setHasAnalyzed(true);
     } catch (error) {
       console.error(
@@ -358,6 +365,12 @@ export default function Employee() {
             operational_department:
               department,
             input_mode: mode,
+            near_miss_confidence:
+              aiResult?.models?.near_miss?.confidence ?? null,
+            unsafe_act_confidence:
+              aiResult?.models?.unsafe_act?.confidence ?? null,
+            unsafe_condition_confidence:
+              aiResult?.models?.unsafe_condition?.confidence ?? null,
             category:
               category || null,
             sif_probability:
@@ -384,7 +397,9 @@ export default function Employee() {
                 )
                   ? sifPercentage
                   : null,
-              iogp_rule: iogpRule
+              iogp_rule: iogpRule,
+              models: aiResult?.models ?? null,
+              ensemble: aiResult?.ensemble ?? null
             }
           })
           .select()
