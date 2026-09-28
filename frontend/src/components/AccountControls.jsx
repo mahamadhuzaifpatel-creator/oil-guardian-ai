@@ -1,76 +1,147 @@
-import { useState } from "react";
-import { User, Power, X, ChevronDown } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import { motion, AnimatePresence } from "framer-motion";
+import { LogOut, User } from "lucide-react";
+import { useState } from "react";
+import { useAuth } from "../context/AuthContext";
 
-export default function AccountControls({ role }) {
-  const [showProfile, setShowProfile] = useState(false);
+export default function AccountControls() {
   const navigate = useNavigate();
+  const { user, profile, signOut } = useAuth();
+
+  const [showProfile, setShowProfile] = useState(false);
+  const [loggingOut, setLoggingOut] = useState(false);
+
+  const handleLogout = async () => {
+    if (loggingOut) return;
+
+    try {
+      setLoggingOut(true);
+      await signOut();
+      navigate("/login", { replace: true });
+    } catch (error) {
+      console.error("Logout failed:", error);
+      setLoggingOut(false);
+    }
+  };
 
   return (
-    <>
-      <div className="account-controls">
-        <button
-          className="account-user-button cursor-target"
-          onClick={() => setShowProfile(true)}
-        >
-          <div className="profile-icon-blue"><User size={14} /></div>
-          {role} (Active)
-          <ChevronDown size={14} className="text-muted" />
-        </button>
-        <button
-          className="account-logout-button cursor-target"
-          onClick={() => navigate("/")}
-          title="Secure Logout"
-        >
-          <Power size={14} />
-          <span>Logout</span>
-        </button>
-      </div>
+    <div className="account-controls">
 
-      <AnimatePresence>
-        {showProfile && (
-          <motion.div
-            className="profile-overlay"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-          >
-            <div className="profile-modal">
-              <button
-                className="profile-close cursor-target"
-                onClick={() => setShowProfile(false)}
-              >
-                <X size={24} />
-              </button>
+      <button
+        type="button"
+        className="account-profile-button cursor-target"
+        onClick={() =>
+          setShowProfile((previous) => !previous)
+        }
+        title="Profile"
+      >
+        <div className="account-avatar">
+          <User size={17} />
+        </div>
 
-              <div className="profile-header">
-                <div className="profile-avatar"><User size={34} /></div>
-                <div className="profile-heading">
-                  <h2>Mahamad Huzaif Patel</h2>
-                  <h3>{role}</h3>
-                  <span className="profile-certification">OISD Certified Active</span>
-                </div>
-              </div>
+        <div className="account-info">
+          <span className="account-name">
+            {profile?.full_name ||
+              user?.email ||
+              "User"}
+          </span>
 
-              <div className="profile-divider" />
+          <span className="account-role">
+            {profile?.role === "safety_officer"
+              ? "Safety Officer"
+              : "Employee"}
+          </span>
+        </div>
+      </button>
 
-              <div className="profile-info">
-                <div className="profile-row"><span>Company</span><strong>Oil India Limited</strong></div>
-                <div className="profile-row"><span>Primary Division</span><strong>Exploration & Production (E&P)</strong></div>
-                <div className="profile-row"><span>Current Status</span><strong className="text-green">Active on Station</strong></div>
-              </div>
 
-              <button
-                className="close-profile-button cursor-target"
-                onClick={() => setShowProfile(false)}
-              >
-                Close Profile
-              </button>
+      <button
+        type="button"
+        className="account-logout-button cursor-target"
+        onClick={handleLogout}
+        disabled={loggingOut}
+        title="Logout"
+      >
+        <LogOut size={17} />
+
+        <span>
+          {loggingOut
+            ? "Logging out..."
+            : "Logout"}
+        </span>
+      </button>
+
+
+      {showProfile && (
+        <div className="profile-popup">
+
+          <div className="profile-popup-header">
+
+            <User size={18} />
+
+            <span>
+              Profile
+            </span>
+
+          </div>
+
+
+          <div className="profile-popup-content">
+
+            <div>
+              <small>
+                Name
+              </small>
+
+              <strong>
+                {profile?.full_name ||
+                  "Not available"}
+              </strong>
             </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </>
+
+
+            <div>
+              <small>
+                Email
+              </small>
+
+              <strong>
+                {user?.email ||
+                  "Not available"}
+              </strong>
+            </div>
+
+
+            <div>
+              <small>
+                Role
+              </small>
+
+              <strong>
+                {profile?.role ===
+                "safety_officer"
+                  ? "Safety Officer"
+                  : "Employee"}
+              </strong>
+            </div>
+
+
+            {profile?.employee_id && (
+              <div>
+                <small>
+                  Employee ID
+                </small>
+
+                <strong>
+                  {profile.employee_id}
+                </strong>
+              </div>
+            )}
+
+          </div>
+
+        </div>
+      )}
+
+    </div>
   );
 }
