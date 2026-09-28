@@ -16,7 +16,15 @@ import { useAuth } from "../context/AuthContext";
 
 function Login() {
   const [role, setRole] = useState("employee");
-  const [view, setView] = useState("login");
+  // Opened from a password-reset email? (our own ?reset=1 marker survives
+  // Supabase's URL clean-up; the hash check covers older links)
+  const [view, setView] = useState(() => {
+    const params = new URLSearchParams(window.location.search);
+    const isRecoveryLink =
+      params.get("reset") === "1" ||
+      window.location.hash.includes("type=recovery");
+    return isRecoveryLink ? "reset" : "login";
+  });
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -35,14 +43,15 @@ function Login() {
    * send the user directly to the correct dashboard.
    */
   useEffect(() => {
-    if (authLoading || !user || !profile) return;
+    // Never auto-redirect while the user is setting a new password
+    if (authLoading || !user || !profile || view === "reset") return;
 
     if (profile.role === "safety_officer") {
       navigate("/officer", { replace: true });
     } else {
       navigate("/employee", { replace: true });
     }
-  }, [user, profile, authLoading, navigate]);
+  }, [user, profile, authLoading, navigate, view]);
 
   /*
    * Supabase password recovery.
@@ -170,7 +179,7 @@ function Login() {
     clearMessages();
 
     try {
-      const redirectUrl = `${window.location.origin}/`;
+      const redirectUrl = `${window.location.origin}/login?reset=1`;
 
       const { error: resetError } =
         await supabase.auth.resetPasswordForEmail(
@@ -314,6 +323,9 @@ function Login() {
       );
 
       await supabase.auth.signOut();
+
+      // Remove the ?reset=1 marker so a page refresh shows the normal login
+      window.history.replaceState({}, "", "/login");
 
       setTimeout(() => {
         setView("login");
