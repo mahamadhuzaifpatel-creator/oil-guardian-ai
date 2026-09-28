@@ -17,6 +17,7 @@ from ml_modules.unsafe_condition.inference import (
 )
 
 from ensemble.soft_voting import soft_vote
+from ensemble.sif_scoring import score_sif
 
 from ml_modules.iogp_rule.inference import classify as classify_iogp_rule
 
@@ -116,7 +117,11 @@ def analyze_report(request: AnalyzeRequest):
             detail="AI model inference failed. Please try again."
         )
 
-    ensemble = soft_vote(
+    # SIF scoring v2 (EEI-style). The old equal-weight soft vote is kept
+    # only for comparison; see scripts/evaluate_sif.py for the evidence.
+    ensemble = score_sif(text, unsafe_act["confidence"])
+
+    ensemble["legacy_soft_vote"] = soft_vote(
         near_miss["confidence"] / 100,
         unsafe_act["confidence"] / 100,
         unsafe_condition["confidence"] / 100

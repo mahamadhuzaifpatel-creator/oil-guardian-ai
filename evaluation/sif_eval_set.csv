@@ -1,0 +1,73 @@
+case_id,pair_id,source,category,expected_sif,text
+V-UA01-D,V-UA01,vinayak_paired,Unsafe Act,True,"A worker entered a confined space without gas testing, without a permit, and without an attendant. The atmosphere was not verified before entry."
+V-UA01-C,V-UA01,vinayak_paired,Unsafe Act,False,"The confined-space permit was approved, the atmosphere was tested and confirmed safe, continuous monitoring was active, an attendant was present, and the rescue team was ready before entry."
+V-UA02-D,V-UA02,vinayak_paired,Unsafe Act,True,A worker removed a jam from a running machine without isolating the energy source or applying LOTO. The machine unexpectedly started while the worker was reaching into the moving mechanism.
+V-UA02-C,V-UA02,vinayak_paired,Unsafe Act,False,"The machine was stopped, all energy sources were isolated and locked out, zero energy was verified, and the jam was removed using the approved procedure."
+V-UA03-D,V-UA03,vinayak_paired,Unsafe Act,True,A worker climbed to an elevated work area without a harness or lanyard and worked near an unprotected edge.
+V-UA03-C,V-UA03,vinayak_paired,Unsafe Act,False,"The worker used the approved access system, wore the required harness and lanyard, and connected the fall-arrest system before working at height."
+V-UA04-D,V-UA04,vinayak_paired,Unsafe Act,True,An employee bypassed a machine interlock and operated the equipment with the safety control defeated.
+V-UA04-C,V-UA04,vinayak_paired,Unsafe Act,False,"The machine interlock was functional, remained enabled, and the equipment was operated only after the safety control was verified."
+V-NM01-D,V-NM01,vinayak_paired,Near Miss,True,A suspended load swung unexpectedly during crane lifting and passed close to a worker. The worker was not struck and no injury occurred.
+V-NM01-C,V-NM01,vinayak_paired,Near Miss,False,"The lifting area was barricaded, the exclusion zone was maintained, the load was controlled by the signalman, and no personnel entered beneath or near the suspended load."
+V-NM02-D,V-NM02,vinayak_paired,Near Miss,True,"A hydraulic hose suddenly whipped during equipment operation and passed close to a worker, who moved away before being struck."
+V-NM02-C,V-NM02,vinayak_paired,Near Miss,False,"The hydraulic hose was inspected, secured correctly, and the work area was kept clear before equipment operation resumed."
+V-NM03-D,V-NM03,vinayak_paired,Near Miss,True,A tool fell from an elevated platform and landed close to a worker below. No one was injured.
+V-NM03-C,V-NM03,vinayak_paired,Near Miss,False,"Tools were secured with approved tethers, the exclusion zone below the work area was established, and no unauthorized person entered the drop zone."
+V-NM04-D,V-NM04,vinayak_paired,Near Miss,True,A vehicle nearly struck a pedestrian at an operating site intersection because the pedestrian and vehicle entered the same path at the same time.
+V-NM04-C,V-NM04,vinayak_paired,Near Miss,False,"Vehicle and pedestrian routes were segregated, the crossing was controlled, and the driver stopped at the designated crossing before proceeding."
+V-UC01-D,V-UC01,vinayak_paired,Unsafe Condition,True,A damaged electrical cable has exposed conductors near a wet work area. The cable insulation is broken and the exposed section has not been isolated or repaired.
+V-UC01-C,V-UC01,vinayak_paired,Unsafe Condition,False,"The damaged electrical cable was removed from service, the circuit was isolated and locked out, the area was made safe, and the cable was replaced by an authorized electrician before work resumed."
+V-UC02-D,V-UC02,vinayak_paired,Unsafe Condition,True,"A high-pressure process line has severe corrosion and pitting around a flange, with visible leakage developing from the joint. The damaged section has not yet been repaired."
+V-UC02-C,V-UC02,vinayak_paired,Unsafe Condition,False,"The leaking section was isolated, depressurized, repaired, pressure-tested, and returned to service only after the repair was verified."
+V-UC03-D,V-UC03,vinayak_paired,Unsafe Condition,True,"A scaffold has a damaged support member and missing guardrails, creating an unstable and unprotected work platform."
+V-UC03-C,V-UC03,vinayak_paired,Unsafe Condition,False,"The damaged scaffold was removed from service, the structure was repaired and inspected, and all required guardrails were installed before the scaffold was used again."
+V-UC04-D,V-UC04,vinayak_paired,Unsafe Condition,True,A slippery oil spill is present on an active walkway near operating equipment and has not yet been cleaned or barricaded.
+V-UC04-C,V-UC04,vinayak_paired,Unsafe Condition,False,"The oil spill was contained and cleaned, the area was barricaded during cleanup, and the walkway was reopened only after the surface was made safe."
+T-UA-CS-01,T-UA-CS-01,vinayak_targeted,Unsafe Act,True,A worker entered an oxygen-deficient confined space without gas testing or an approved permit. No attendant or rescue team was available.
+T-UA-CS-01-C,T-UA-CS-01,vinayak_targeted,Unsafe Act,False,"A worker entered the confined space only after the permit was approved, the atmosphere was tested and confirmed safe, continuous gas monitoring was active, an attendant was stationed outside, and a rescue team was available."
+T-UA-CS-02,T-UA-CS-02,vinayak_targeted,Unsafe Act,True,A worker entered a process vessel without confirming atmospheric conditions and without isolating the connected energy sources. The worker started work inside the vessel before the required confined-space controls were established.
+T-UA-CS-02-C,T-UA-CS-02,vinayak_targeted,Unsafe Act,False,"Before entry into the process vessel, all connected energy sources were isolated and locked out, the vessel was made safe, the atmosphere was tested, continuous monitoring was established, and an approved confined-space permit was issued."
+T-UA-CS-03,T-UA-CS-03,vinayak_targeted,Unsafe Act,True,"A worker attempted to enter a confined space without a permit, without continuous gas monitoring, and without a retrieval or rescue plan. Another worker entered behind him to assist without proper controls."
+T-UA-CS-03-C,T-UA-CS-03,vinayak_targeted,Unsafe Act,False,"Confined-space entry was performed under an approved permit with atmospheric testing, continuous gas monitoring, an attendant, a retrieval system, and a documented rescue plan with trained responders."
+T-NM-SL-01,T-NM-SL-01,vinayak_targeted,Near Miss,True,A suspended pipe section swung unexpectedly during a crane lift and passed close to a worker who was standing inside the lifting area. The worker moved away before being struck.
+T-NM-SL-01-C,T-NM-SL-01,vinayak_targeted,Near Miss,False,A crane lift of a pipe section was carried out inside a barricaded exclusion zone. A trained rigger controlled the load with tag lines and workers remained outside the lifting area.
+T-NM-SL-02,T-NM-SL-02,vinayak_targeted,Near Miss,True,A suspended load shifted suddenly while being lifted and moved toward two workers. The workers stepped back just before the load passed close to them.
+T-NM-SL-02-C,T-NM-SL-02,vinayak_targeted,Near Miss,False,"The suspended load was inspected before lifting, secured correctly, controlled with tag lines, and lifted only after the exclusion zone was established and all personnel were clear."
+T-NM-SL-03,T-NM-SL-03,vinayak_targeted,Near Miss,True,A crane load swung across a walkway and nearly struck a worker who was walking nearby. The worker stopped and moved clear before contact occurred.
+T-NM-SL-03-C,T-NM-SL-03,vinayak_targeted,Near Miss,False,"The crane lifting path was planned in advance, the walkway was isolated with barricades, and a spotter ensured that no person entered the lifting area while the load was suspended."
+T-NM-HH-01,T-NM-HH-01,vinayak_targeted,Near Miss,True,A high-pressure hydraulic hose failed during equipment operation and began whipping near a maintenance worker. The worker moved away before being hit.
+T-NM-HH-01-C,T-NM-HH-01,vinayak_targeted,Near Miss,False,"The hydraulic system was isolated and depressurized before maintenance. The damaged hose was replaced, pressure was checked, and the equipment was returned to service after verification."
+T-NM-HH-02,T-NM-HH-02,vinayak_targeted,Near Miss,True,A hydraulic line ruptured unexpectedly and the pressurized hose whipped toward the operator. The operator stepped clear and avoided contact.
+T-NM-HH-02-C,T-NM-HH-02,vinayak_targeted,Near Miss,False,"Before work began, the hydraulic equipment was stopped, energy was isolated, hydraulic pressure was fully released, and the defective line was replaced using the approved procedure."
+T-NM-HH-03,T-NM-HH-03,vinayak_targeted,Near Miss,True,A leaking hydraulic hose moved violently when pressure changed and came close to a worker performing inspection. The worker withdrew before being struck.
+T-NM-HH-03-C,T-NM-HH-03,vinayak_targeted,Near Miss,False,The hydraulic circuit was isolated and bled to zero pressure before inspection. The defective hose was repaired by authorized personnel and the system was tested safely before operation.
+T-UC-EL-01,T-UC-EL-01,vinayak_targeted,Unsafe Condition,True,A damaged electrical cable has exposed conductors near a wet work area. The cable insulation is broken and the exposed section has not been isolated or repaired.
+T-UC-EL-01-C,T-UC-EL-01,vinayak_targeted,Unsafe Condition,False,"The damaged electrical cable was removed from service, the circuit was isolated and locked out, the area was made safe, and the cable was replaced by an authorized electrician before work resumed."
+T-UC-EL-02,T-UC-EL-02,vinayak_targeted,Unsafe Condition,True,An electrical junction box has an open cover with exposed live terminals in an accessible work area. The electrical circuit has not been isolated and the hazard remains present.
+T-UC-EL-02-C,T-UC-EL-02,vinayak_targeted,Unsafe Condition,False,"The electrical circuit was isolated and locked out, zero energy was verified, the junction box cover was repaired by an authorized electrician, and the area was made safe before work resumed."
+T-UC-EL-03,T-UC-EL-03,vinayak_targeted,Unsafe Condition,True,A frayed extension cable has exposed wires on a construction worksite. The damaged cable remains in service and has not been removed from use.
+T-UC-EL-03-C,T-UC-EL-03,vinayak_targeted,Unsafe Condition,False,"The damaged extension cable was removed from service, the electrical supply was isolated, the defective cable was replaced, and the area was checked by authorized personnel before work resumed."
+T-UC-PC-01,T-UC-PC-01,vinayak_targeted,Unsafe Condition,True,"A high-pressure process line has severe corrosion and pitting around a flange, with visible leakage developing from the joint. The damaged section has not yet been repaired."
+T-UC-PC-01-C,T-UC-PC-01,vinayak_targeted,Unsafe Condition,False,"The leaking process section was isolated, depressurized, repaired, pressure-tested, and returned to service only after the repair was verified."
+T-UC-PC-02,T-UC-PC-02,vinayak_targeted,Unsafe Condition,True,A pressurized process pipe has significant external corrosion and a developing crack near a flange. The line remains in service and the damaged section has not been repaired.
+T-UC-PC-02-C,T-UC-PC-02,vinayak_targeted,Unsafe Condition,False,"The affected process pipe was isolated and depressurized, the damaged section was repaired, the repair was pressure-tested, and the line was returned to service after verification."
+T-UC-PC-03,T-UC-PC-03,vinayak_targeted,Unsafe Condition,True,A corroded high-pressure line near the pump shows wall thinning and leakage. The condition has not been repaired and the line remains under operating pressure.
+T-UC-PC-03-C,T-UC-PC-03,vinayak_targeted,Unsafe Condition,False,"The affected high-pressure line was removed from service through proper isolation, pressure was released, the damaged section was repaired and inspected, and the line was returned to service after successful testing."
+T-UC-SC-01,T-UC-SC-01,vinayak_targeted,Unsafe Condition,True,A scaffold has a missing guardrail and an unsecured platform plank at an elevated work area. The scaffold remains available for workers to use.
+T-UC-SC-01-C,T-UC-SC-01,vinayak_targeted,Unsafe Condition,False,"The scaffold was taken out of service, missing guardrails were installed, the platform was secured, and the scaffold was inspected and approved before workers returned."
+T-UC-SC-02,T-UC-SC-02,vinayak_targeted,Unsafe Condition,True,An elevated scaffold platform has an incomplete working deck and missing toe boards. Materials could fall from the platform and workers could be exposed to a fall hazard.
+T-UC-SC-02-C,T-UC-SC-02,vinayak_targeted,Unsafe Condition,False,"The scaffold was barricaded and removed from service until the platform was completed, toe boards were installed, and a competent person inspected and approved the scaffold."
+T-UC-SC-03,T-UC-SC-03,vinayak_targeted,Unsafe Condition,True,"A scaffold has a loose plank and damaged access ladder, and its inspection status is not current. Workers are still using the scaffold."
+T-UC-SC-03-C,T-UC-SC-03,vinayak_targeted,Unsafe Condition,False,"The scaffold was taken out of service, the loose plank and damaged ladder were replaced, the scaffold was inspected by a competent person, and the updated inspection status was displayed before use."
+TEAM-01,,team_test_set,Unsafe Act,True,Electrician worked on live 11kV panel without lockout or isolation verification
+TEAM-02,,team_test_set,Unsafe Act,True,Welder started cutting on crude pipeline at GGS without gas test and without hot work permit
+TEAM-03,,team_test_set,Unsafe Act,True,Helper entered mud tank to clean it without gas testing and no standby person outside
+TEAM-04,,team_test_set,Unsafe Act,True,Rigger stood directly under suspended drill collar while crane was lifting it
+TEAM-05,,team_test_set,Unsafe Act,True,Derrickman climbed to monkey board at 25 m without full-body harness
+TEAM-06,,team_test_set,Unsafe Condition,True,Pressure safety valve on separator found gagged to keep production running
+TEAM-07,,team_test_set,Near Miss,True,"Worker stood in front of pressurised hose connection during pressure test, hose whipped and missed him by a metre"
+TEAM-08,,team_test_set,Unsafe Act,True,"Contractor drove pickup inside field at high speed while using mobile phone, no seatbelt"
+TEAM-09,,team_test_set,Unsafe Act,True,Maintenance crew started pump overhaul without a valid work permit
+TEAM-10,,team_test_set,Near Miss,False,"Worker almost slipped on oil spill near maintenance area, no injury"
+TEAM-11,,team_test_set,Unsafe Condition,False,Water cooler in canteen not working
+TEAM-12,,team_test_set,Unsafe Act,False,Office staff not wearing ID card inside admin building
