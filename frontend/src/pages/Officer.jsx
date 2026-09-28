@@ -50,6 +50,16 @@ const CATEGORY_LABELS = {
   unsafe_condition: "Unsafe Condition"
 };
 
+const REPORT_TYPES = ["Unsafe Act", "Unsafe Condition", "Near Miss", "Incident"];
+
+const categorySourceLabel = (report) => {
+  const source = report.ai_result?.category_source;
+  if (source === "officer") return "Confirmed by safety officer";
+  if (source === "employee") return "Chosen by employee";
+  if (source === "ai") return "AI-suggested, needs confirmation";
+  return "Source not recorded";
+};
+
 const formatStatus = (status) => STATUS_LABELS[status] || status || "Submitted";
 
 const formatCategory = (category) => {
@@ -148,6 +158,7 @@ function Officer() {
   const [selectedLog, setSelectedLog] = useState(null);
 
   const [editStatus, setEditStatus] = useState("submitted");
+  const [editCategory, setEditCategory] = useState("");
   const [editAssignee, setEditAssignee] = useState("");
   const [editRemarks, setEditRemarks] = useState("");
   const [showConfirmModal, setShowConfirmModal] = useState(false);
@@ -246,6 +257,7 @@ function Officer() {
   const openReport = (report) => {
     setSelectedLog(report);
     setEditStatus(report.status || "submitted");
+    setEditCategory(REPORT_TYPES.includes(formatCategory(report.category)) ? formatCategory(report.category) : "");
     setEditAssignee(report.assigned_to || "");
     setEditRemarks(report.officer_remarks || "");
     setSaveError("");
@@ -263,6 +275,14 @@ function Officer() {
       .from("reports")
       .update({
         status: editStatus,
+        ...(editCategory &&
+        (editCategory !== formatCategory(selectedLog.category) ||
+          selectedLog.ai_result?.category_source === "ai")
+          ? {
+              category: editCategory,
+              ai_result: { ...(selectedLog.ai_result || {}), category_source: "officer" }
+            }
+          : {}),
         assigned_to: editAssignee.trim() || null,
         officer_remarks: editRemarks.trim() || null,
         reviewed_by: user.id,
@@ -426,7 +446,7 @@ function Officer() {
                       <th>CATEGORY</th>
                       <th>IOGP RULE</th>
                       <th>RISK TIER</th>
-                      <th>SIF PROB.</th>
+                      <th>SIF SCORE</th>
                       <th>STATUS</th>
                     </tr>
                   </thead>
@@ -492,7 +512,7 @@ function Officer() {
               {/* TOP 4 KPI CARDS */}
               <div className="report-kpi-grid">
                 <div className="report-kpi-card">
-                  <div className="kpi-top"><span>SIF PRECURSOR PROB.</span> <Activity size={14} className="text-orange" /></div>
+                  <div className="kpi-top"><span>SIF POTENTIAL SCORE</span> <Activity size={14} className="text-orange" /></div>
                   <div className="kpi-main">
                     <h2>{formatPercent(selectedLog.sif_percentage) || "—"}</h2>
                     <span
@@ -511,7 +531,7 @@ function Officer() {
                       }}
                     />
                   </div>
-                  <small>Ensemble probability of serious-injury or fatality potential</small>
+                  <small>Control failure × high-energy check · 50% = SIF threshold</small>
                 </div>
 
                 <div className="report-kpi-card">
@@ -519,8 +539,12 @@ function Officer() {
                   <div className="kpi-main">
                     <h2 className="text-white">{formatCategory(selectedLog.category)}</h2>
                   </div>
-                  <div className="kpi-sub text-blue"><CheckCircle size={12} /> Input: {selectedLog.input_mode || "text"}</div>
-                  <small>Model with the strongest SIF signal</small>
+                  <div className="kpi-sub text-blue"><CheckCircle size={12} /> {categorySourceLabel(selectedLog)}</div>
+                  <small>
+                    {selectedLog.ai_result?.report_type_ai?.type
+                      ? `AI suggestion: ${selectedLog.ai_result.report_type_ai.type} (${selectedLog.ai_result.report_type_ai.confidence}%)`
+                      : `Input: ${selectedLog.input_mode || "text"}`}
+                  </small>
                 </div>
 
                 <div className="report-kpi-card">
@@ -529,7 +553,7 @@ function Officer() {
                     <h2 className="text-orange">{selectedLog.risk_tier || "Unknown"}</h2>
                   </div>
                   <div className="kpi-sub text-muted"><Settings size={12} /> Status: {formatStatus(selectedLog.status)}</div>
-                  <small>High ≥ 70% · Moderate ≥ 40% · Low &lt; 40%</small>
+                  <small>High ≥ 70% · Moderate 50–70% (SIF-flagged) · Low &lt; 50%</small>
                 </div>
 
                 <div className="report-kpi-card">
@@ -601,6 +625,16 @@ function Officer() {
                       <select className="cursor-target" value={editStatus} onChange={(e) => setEditStatus(e.target.value)}>
                         {STATUS_OPTIONS.map((option) => (
                           <option key={option.value} value={option.value}>{option.label}</option>
+                        ))}
+                      </select>
+                    </div>
+
+                    <div className="workflow-field">
+                      <label>CONFIRM REPORT TYPE</label>
+                      <select className="cursor-target" value={editCategory} onChange={(e) => setEditCategory(e.target.value)}>
+                        <option value="">Keep as submitted</option>
+                        {REPORT_TYPES.map((type) => (
+                          <option key={type} value={type}>{type}</option>
                         ))}
                       </select>
                     </div>

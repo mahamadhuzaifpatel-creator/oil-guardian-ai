@@ -16,8 +16,9 @@ How the score works:
      atmosphere, excavation, bypassed safety devices)?
      If none is mentioned, the score is halved: a skipped control with no
      high-energy source (e.g. "ID card not worn") is not a fatality precursor.
-  3. The score is rescaled so that 50% = the decision threshold, keeping the
-     app's High (>=70%) / Moderate (>=40%) / Low tiers meaningful.
+  3. The score is rescaled so that 50% = the decision threshold.
+     Tiers: High >= 70%, Moderate 50-70% (SIF-flagged), Low < 50% (not SIF).
+     It is a ranking score, not a calibrated probability.
 
 The other models' scores are still returned for transparency, but don't vote.
 """
@@ -73,9 +74,11 @@ def score_sif(text: str, unsafe_act_confidence: float) -> dict:
     raw = control_failure if energy else control_failure * NO_ENERGY_FACTOR
     display = max(0.0, min(1.0, _to_display(raw)))
 
+    # Tiers line up with the decision threshold (50% after rescaling):
+    # every SIF-flagged report is Moderate or High, every non-SIF report is Low.
     if display >= 0.70:
         risk_tier = "High"
-    elif display >= 0.40:
+    elif display >= 0.50:
         risk_tier = "Moderate"
     else:
         risk_tier = "Low"

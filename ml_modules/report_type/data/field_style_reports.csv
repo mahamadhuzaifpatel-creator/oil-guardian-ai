@@ -1,0 +1,425 @@
+id,text,label,source
+RT-0001,Rigger standing under suspended load during casing lifting at rig 7,Unsafe Act,field_style_v1
+RT-0002,"Fitter working on pump P-12 without taking LOTO, isolation not done",Unsafe Act,field_style_v1
+RT-0003,Saw a contractor welding near the tank farm without any hot work permit,Unsafe Act,field_style_v1
+RT-0004,Helper not wearing safety harness while working on the derrick platform,Unsafe Act,field_style_v1
+RT-0005,Driver was talking on mobile phone while driving the tanker inside the field,Unsafe Act,field_style_v1
+RT-0006,Operator bypassed the high pressure trip on separator to avoid shutdown,Unsafe Act,field_style_v1
+RT-0007,Worker entered the sump pit without gas test and without attendant,Unsafe Act,field_style_v1
+RT-0008,"Crane operator lifting load without a signalman, tag line not used",Unsafe Act,field_style_v1
+RT-0009,Electrician opened live 11 kV panel without isolation and without arc flash PPE,Unsafe Act,field_style_v1
+RT-0010,Contractor smoking near the wellhead area where no smoking board is displayed,Unsafe Act,field_style_v1
+RT-0011,Trainee operating forklift without authorization or licence,Unsafe Act,field_style_v1
+RT-0012,Labour was sitting on the edge of the open trench having lunch,Unsafe Act,field_style_v1
+RT-0013,Scaffolder climbed the scaffolding without clipping his lanyard,Unsafe Act,field_style_v1
+RT-0014,Mechanic removed the guard of rotating coupling and started the pump,Unsafe Act,field_style_v1
+RT-0015,Welder not using face shield during grinding at workshop,Unsafe Act,field_style_v1
+RT-0016,Pickup driver not wearing seat belt near GGS-3 gate,Unsafe Act,field_style_v1
+RT-0017,Security guard allowed a vehicle without spark arrestor into the drilling site,Unsafe Act,field_style_v1
+RT-0018,Floor man put his hand between tong jaws while tripping pipe,Unsafe Act,field_style_v1
+RT-0019,Operator opened the pig trap door without confirming zero pressure,Unsafe Act,field_style_v1
+RT-0020,Person using mobile phone inside the hazardous zone of the gas compressor station,Unsafe Act,field_style_v1
+RT-0021,Worker jumped over the pipeline instead of using the crossover,Unsafe Act,field_style_v1
+RT-0022,Painter working at 4 m height on ladder with no one holding it,Unsafe Act,field_style_v1
+RT-0023,Driver reversing trailer without banksman at the pipe yard,Unsafe Act,field_style_v1
+RT-0024,Operator filled diesel in generator while engine running,Unsafe Act,field_style_v1
+RT-0025,Contractor using damaged sling for lifting because no other sling was available,Unsafe Act,field_style_v1
+RT-0026,Employee cleaning the conveyor while it was running,Unsafe Act,field_style_v1
+RT-0027,Roustabout riding on the forks of the forklift to reach the rack,Unsafe Act,field_style_v1
+RT-0028,"Worker cutting cable with bare hands, no gloves, near energized DB",Unsafe Act,field_style_v1
+RT-0029,Two workers inside the tank but the confined space entry permit only had one name,Unsafe Act,field_style_v1
+RT-0030,Fitter tightened the flange bolts on a pressurized line,Unsafe Act,field_style_v1
+RT-0031,Mud engineer handling caustic soda without goggles and gloves,Unsafe Act,field_style_v1
+RT-0032,Crew members walked through the barricaded area during pressure testing,Unsafe Act,field_style_v1
+RT-0033,Electrician defeated the interlock of the MCC door to take readings quickly,Unsafe Act,field_style_v1
+RT-0034,Driver overspeeding at around 60 kmph inside the plant where limit is 20,Unsafe Act,field_style_v1
+RT-0035,bina harness ke derrickman monkey board pe chadh gaya,Unsafe Act,field_style_v1
+RT-0036,Welder did not do gas testing before hot work on the crude line,Unsafe Act,field_style_v1
+RT-0037,Worker was standing in the swing radius of the excavator bucket,Unsafe Act,field_style_v1
+RT-0038,Contractor supervisor gave verbal permission and work started without JSA,Unsafe Act,field_style_v1
+RT-0039,Operator left the choke manifold unattended during well flowback,Unsafe Act,field_style_v1
+RT-0040,Rig crew removed the kelly cock guard and did not put it back,Unsafe Act,field_style_v1
+RT-0041,Helper lifting 50 kg bag alone in awkward posture,Unsafe Act,field_style_v1
+RT-0042,Technician took H2S reading and then removed his BA set inside the cellar,Unsafe Act,field_style_v1
+RT-0043,Worker threw scrap material from height instead of lowering it,Unsafe Act,field_style_v1
+RT-0044,Truck driver slept in the cabin with engine running at the loading bay,Unsafe Act,field_style_v1
+RT-0045,Staff member overrode the fire alarm in the control room because it was noisy,Unsafe Act,field_style_v1
+RT-0046,Contractor used an aluminium ladder to work near overhead power line,Unsafe Act,field_style_v1
+RT-0047,Operator opened the sample point on the H2S line without a gas monitor,Unsafe Act,field_style_v1
+RT-0048,Crew started perforation job before the radio silence was confirmed,Unsafe Act,field_style_v1
+RT-0049,Worker wore loose clothes near the rotary table,Unsafe Act,field_style_v1
+RT-0050,I saw a fitter using a spanner as a hammer on the valve,Unsafe Act,field_style_v1
+RT-0051,Lineman climbed the pole without checking if the line was dead,Unsafe Act,field_style_v1
+RT-0052,Crane was used above its rated capacity to lift the mud pump module,Unsafe Act,field_style_v1
+RT-0053,Employee drove the company vehicle after night shift with no rest,Unsafe Act,field_style_v1
+RT-0054,Helper stood on top of the drum to reach the valve,Unsafe Act,field_style_v1
+RT-0055,Driver did not do pre-trip check and drove the tanker with low brake air,Unsafe Act,field_style_v1
+RT-0056,Scaffold was modified by the welder himself without scaffolding inspector,Unsafe Act,field_style_v1
+RT-0057,Workers were not maintaining 3 point contact while using the stairs to the tank roof,Unsafe Act,field_style_v1
+RT-0058,Contractor entered process area without gas detector and without escort,Unsafe Act,field_style_v1
+RT-0059,Operator changed the PSV set pressure without management of change,Unsafe Act,field_style_v1
+RT-0060,Worker using petrol to clean hands and tools in workshop,Unsafe Act,field_style_v1
+RT-0061,Electrician worked alone in the substation at night without informing control room,Unsafe Act,field_style_v1
+RT-0062,Rig hand was pulling the stand without wearing hard hat,Unsafe Act,field_style_v1
+RT-0063,Helper was spraying water on the live switchgear to clean dust,Unsafe Act,field_style_v1
+RT-0064,Supervisor instructed crew to skip the toolbox talk to save time,Unsafe Act,field_style_v1
+RT-0065,Driver carried passengers on the back of the flatbed truck,Unsafe Act,field_style_v1
+RT-0066,Worker opened the manhole cover and left it unguarded,Unsafe Act,field_style_v1
+RT-0067,"Operator did not follow the SOP for starting the heater, lit the burner without purge",Unsafe Act,field_style_v1
+RT-0068,Labour carrying gas cylinder by rolling it on the ground without cap,Unsafe Act,field_style_v1
+RT-0069,Technician used a non intrinsically safe torch inside zone 1 area,Unsafe Act,field_style_v1
+RT-0070,Contractor used an unregistered chain block for lifting the valve,Unsafe Act,field_style_v1
+RT-0071,Crew member walked on the pipe rack without fall protection,Unsafe Act,field_style_v1
+RT-0072,Driver took shortcut through the pipeline right of way with heavy vehicle,Unsafe Act,field_style_v1
+RT-0073,"Fitter entered the vessel while the inlet valve was only closed, not blinded",Unsafe Act,field_style_v1
+RT-0074,Workers lifting a heavy flange manually instead of using the davit,Unsafe Act,field_style_v1
+RT-0075,Today at around 10 am at DRL rig 12 I observed the floorman standing inside the drawworks guard area while it was running. Stopped him and explained.,Unsafe Act,field_style_v1
+RT-0076,During night shift the operator at CTF Lakwa was sleeping on duty in the pump house.,Unsafe Act,field_style_v1
+RT-0077,LOTO nahi kiya aur fitter ne motor ka terminal box khol diya,Unsafe Act,field_style_v1
+RT-0078,PTW closed but crew continued the job after permit expired at 6 pm,Unsafe Act,field_style_v1
+RT-0079,Observed contractor workers not using the designated walkway and crossing the live flowline manifold,Unsafe Act,field_style_v1
+RT-0080,Helper was using his phone camera near the separator which is zone 1,Unsafe Act,field_style_v1
+RT-0081,Forklift operator driving with raised forks and load blocking his view,Unsafe Act,field_style_v1
+RT-0082,JSA was signed by the supervisor without explaining it to the crew,Unsafe Act,field_style_v1
+RT-0083,A worker was seen urinating near the high voltage transformer yard fence gap and entered inside,Unsafe Act,field_style_v1
+RT-0084,Operator manually held the ESD valve open with a chain,Unsafe Act,field_style_v1
+RT-0085,Rigger guiding the load with his hands instead of tag line,Unsafe Act,field_style_v1
+RT-0086,Welder hung his welding holder on the handrail while it was still live,Unsafe Act,field_style_v1
+RT-0087,"Driver not following the journey management plan, took night travel without approval",Unsafe Act,field_style_v1
+RT-0088,The pump operator did not wear ear muffs inside compressor shed despite signage,Unsafe Act,field_style_v1
+RT-0089,Truck driver refuelled while smoking a bidi at the filling point,Unsafe Act,field_style_v1
+RT-0090,Two helpers were sitting on the pipe stack for rest,Unsafe Act,field_style_v1
+RT-0091,Crane operator left the cabin with the load hanging in the air,Unsafe Act,field_style_v1
+RT-0092,Workers removed the barricade tape to take a shortcut,Unsafe Act,field_style_v1
+RT-0093,Operator started the pump without checking the discharge valve position,Unsafe Act,field_style_v1
+RT-0094,Housekeeping staff mixing bleach and acid cleaner in the toilet,Unsafe Act,field_style_v1
+RT-0095,Driver overloaded the pickup with pipes beyond capacity and without tying,Unsafe Act,field_style_v1
+RT-0096,Worker hammering on a pressurised pipe to free a stuck valve,Unsafe Act,field_style_v1
+RT-0097,Supervisor allowed untrained contractor to operate the fire pump,Unsafe Act,field_style_v1
+RT-0098,Worker wearing chappals instead of safety shoes in the workshop,Unsafe Act,field_style_v1
+RT-0099,An employee disabled the smoke detector in the rest room to smoke,Unsafe Act,field_style_v1
+RT-0100,Wireline crew rigged up in high wind above the permitted limit,Unsafe Act,field_style_v1
+RT-0101,Operator vented gas to atmosphere near the camp without informing anyone,Unsafe Act,field_style_v1
+RT-0102,Mechanic did not use jack stands and worked under the lifted truck,Unsafe Act,field_style_v1
+RT-0103,Worker entering the cellar with no gas monitor clipped on,Unsafe Act,field_style_v1
+RT-0104,Technician tested the H2S detector by breathing on it instead of using bump gas,Unsafe Act,field_style_v1
+RT-0105,Driver made a U turn on the highway with the loaded trailer,Unsafe Act,field_style_v1
+RT-0106,Helper cleaning the mud tank with diesel,Unsafe Act,field_style_v1
+RT-0107,Staff propped open the fire door with a chair,Unsafe Act,field_style_v1
+RT-0108,Worker used a gas cylinder as a roller to move equipment,Unsafe Act,field_style_v1
+RT-0109,Operator skipped the purging step before lighting the flare pilot,Unsafe Act,field_style_v1
+RT-0110,Worker standing directly in front of the choke line during flow test,Unsafe Act,field_style_v1
+RT-0111,Helper climbing the tank using the pipe instead of the ladder,Unsafe Act,field_style_v1
+RT-0112,Fitter did the hot tapping without approval from engineering,Unsafe Act,field_style_v1
+RT-0113,Worker brought his mobile charger and plugged it into the MCC socket,Unsafe Act,field_style_v1
+RT-0114,"Contractor did not follow the rescue plan, no standby at confined space",Unsafe Act,field_style_v1
+RT-0115,Handrail of the stair to tank T-3 roof is corroded and broken,Unsafe Condition,field_style_v1
+RT-0116,Found oil leakage from the gland of crude transfer pump at GGS-2,Unsafe Condition,field_style_v1
+RT-0117,Emergency eye wash station at the chemical store is not working,Unsafe Condition,field_style_v1
+RT-0118,Earthing cable of the transformer at OCS is cut,Unsafe Condition,field_style_v1
+RT-0119,Fire extinguisher at the workshop expired last month and not refilled,Unsafe Condition,field_style_v1
+RT-0120,Gas detector at the compressor house showing fault since two days,Unsafe Condition,field_style_v1
+RT-0121,Walkway near the separator is slippery due to oil spill,Unsafe Condition,field_style_v1
+RT-0122,Grating on the drilling rig floor is missing near the V-door,Unsafe Condition,field_style_v1
+RT-0123,"Street light on the road to well site 45 is not working, very dark at night",Unsafe Condition,field_style_v1
+RT-0124,The safety valve on the air receiver has no inspection tag,Unsafe Condition,field_style_v1
+RT-0125,Crane hook safety latch is broken,Unsafe Condition,field_style_v1
+RT-0126,Electrical DB in the canteen has an open cover and exposed wires,Unsafe Condition,field_style_v1
+RT-0127,Water cooler in the admin block is leaking and floor is wet,Unsafe Condition,field_style_v1
+RT-0128,Scaffold at the heater is missing toe boards and mid rail,Unsafe Condition,field_style_v1
+RT-0129,The windsock at the rig site is torn and not visible,Unsafe Condition,field_style_v1
+RT-0130,Pipeline support near the river crossing is washed out,Unsafe Condition,field_style_v1
+RT-0131,Loose cables lying across the walkway in the control room,Unsafe Condition,field_style_v1
+RT-0132,H2S alarm beacon at the cellar is not flashing during test,Unsafe Condition,field_style_v1
+RT-0133,"Tyre of the pickup vehicle is worn out, no tread visible",Unsafe Condition,field_style_v1
+RT-0134,Wellhead valve handwheel is missing on well DJN-112,Unsafe Condition,field_style_v1
+RT-0135,Open excavation near the gate without barricade or warning sign,Unsafe Condition,field_style_v1
+RT-0136,Ladder at the pipe rack has two broken rungs,Unsafe Condition,field_style_v1
+RT-0137,Emergency shutdown push button cover is broken at the manifold,Unsafe Condition,field_style_v1
+RT-0138,Fire water pump did not start in auto during weekly test,Unsafe Condition,field_style_v1
+RT-0139,"Corrosion seen on the flare line, near to leakage",Unsafe Condition,field_style_v1
+RT-0140,Lighting in the chemical store is inadequate,Unsafe Condition,field_style_v1
+RT-0141,Hydraulic hose on the BOP accumulator has cracks,Unsafe Condition,field_style_v1
+RT-0142,First aid box in the drilling camp is empty,Unsafe Condition,field_style_v1
+RT-0143,Oil soaked cotton waste lying near the hot exhaust of generator,Unsafe Condition,field_style_v1
+RT-0144,The ventilation fan of the battery room is not working,Unsafe Condition,field_style_v1
+RT-0145,Guard of the V-belt drive on the cooling tower fan is missing,Unsafe Condition,field_style_v1
+RT-0146,"Pressure gauge on the test separator is broken, glass cracked",Unsafe Condition,field_style_v1
+RT-0147,Rusty and bulging LPG cylinder in the canteen kitchen,Unsafe Condition,field_style_v1
+RT-0148,Manhole cover on the drain line near the tank farm is broken,Unsafe Condition,field_style_v1
+RT-0149,Signboards for no smoking are faded at the GGS entry,Unsafe Condition,field_style_v1
+RT-0150,The mud tank walkway has no handrail on one side,Unsafe Condition,field_style_v1
+RT-0151,Drinking water tap near the workshop is giving dirty water,Unsafe Condition,field_style_v1
+RT-0152,Speed breaker paint is faded near the main gate and not visible,Unsafe Condition,field_style_v1
+RT-0153,Emergency exit door of the office is locked from outside,Unsafe Condition,field_style_v1
+RT-0154,"Insulation of the steam line is damaged, hot surface exposed",Unsafe Condition,field_style_v1
+RT-0155,Flame arrestor on the storage tank vent is choked,Unsafe Condition,field_style_v1
+RT-0156,Crane load chart is not displayed in the cabin,Unsafe Condition,field_style_v1
+RT-0157,The fall arrest block at the derrick is overdue for inspection,Unsafe Condition,field_style_v1
+RT-0158,"Sand bags at the dyke wall are damaged, dyke has a gap",Unsafe Condition,field_style_v1
+RT-0159,"Floor tiles broken near the lab entrance, trip hazard",Unsafe Condition,field_style_v1
+RT-0160,The gas cylinder store has no chain to secure cylinders,Unsafe Condition,field_style_v1
+RT-0161,Fire alarm panel in the admin building showing multiple faults,Unsafe Condition,field_style_v1
+RT-0162,Temporary electrical connection with taped joints at the site office,Unsafe Condition,field_style_v1
+RT-0163,Stair treads are loose on the flare knockout drum platform,Unsafe Condition,field_style_v1
+RT-0164,Bund wall of the diesel tank is cracked,Unsafe Condition,field_style_v1
+RT-0165,Lifting lug on the skid is cracked,Unsafe Condition,field_style_v1
+RT-0166,Compressor room noise is very high and no hearing protection signage,Unsafe Condition,field_style_v1
+RT-0167,"The PPE rack is empty, no helmets available for visitors",Unsafe Condition,field_style_v1
+RT-0168,Pipeline marker posts missing along the ROW near the village,Unsafe Condition,field_style_v1
+RT-0169,Cooling tower basin has no guardrail,Unsafe Condition,field_style_v1
+RT-0170,Welding machine cable insulation is damaged at several places,Unsafe Condition,field_style_v1
+RT-0171,"Road near well site 12 has a big pothole, vehicle can overturn",Unsafe Condition,field_style_v1
+RT-0172,The spill kit at the loading bay is missing absorbent pads,Unsafe Condition,field_style_v1
+RT-0173,Rotating shaft of the agitator at the ETP has no guard,Unsafe Condition,field_style_v1
+RT-0174,Wind speed indicator at the rig is not working,Unsafe Condition,field_style_v1
+RT-0175,"Trench shoring at the pipeline tie-in is not adequate, soil is loose",Unsafe Condition,field_style_v1
+RT-0176,The canteen exhaust hood is full of grease,Unsafe Condition,field_style_v1
+RT-0177,Muster point board has fallen down near the GGS,Unsafe Condition,field_style_v1
+RT-0178,Relief valve outlet is pointing towards the walkway,Unsafe Condition,field_style_v1
+RT-0179,Cable tray cover is missing and cables are exposed to sunlight,Unsafe Condition,field_style_v1
+RT-0180,The chemical drums are kept without labels in the store,Unsafe Condition,field_style_v1
+RT-0181,Tank gauging platform has a hole in the floor plate,Unsafe Condition,field_style_v1
+RT-0182,Oil leak from the hydraulic system of the crane,Unsafe Condition,field_style_v1
+RT-0183,Emergency lighting did not come on during power failure in the control room,Unsafe Condition,field_style_v1
+RT-0184,Wellsite fencing is broken and cattle are entering,Unsafe Condition,field_style_v1
+RT-0185,Fuel dispensing nozzle is leaking at the filling station,Unsafe Condition,field_style_v1
+RT-0186,Air conditioner in the office is not cooling,Unsafe Condition,field_style_v1
+RT-0187,Vent line of the closed drain vessel is corroded through,Unsafe Condition,field_style_v1
+RT-0188,Fire hose reel at the warehouse is damaged,Unsafe Condition,field_style_v1
+RT-0189,At OCS-4 the gas leak detector near compressor K-2 is covered with a plastic bag,Unsafe Condition,field_style_v1
+RT-0190,Paint peeled off and corrosion holes seen on the crude oil storage tank shell near the bottom,Unsafe Condition,field_style_v1
+RT-0191,Canteen floor is always wet near the wash basin,Unsafe Condition,field_style_v1
+RT-0192,Near the Moran GGS the cable trench cover plates are missing for 10 m,Unsafe Condition,field_style_v1
+RT-0193,Fire water hydrant near tank 5 has no hose and the valve is jammed,Unsafe Condition,field_style_v1
+RT-0194,"Earth pit of the lightning arrestor has no inspection record, connection loose",Unsafe Condition,field_style_v1
+RT-0195,Drain valve on the gas separator is passing continuously,Unsafe Condition,field_style_v1
+RT-0196,Vent of the diesel tank has no flame arrestor,Unsafe Condition,field_style_v1
+RT-0197,Handrail at the heater platform shakes when held,Unsafe Condition,field_style_v1
+RT-0198,Kerosene drums stored under the staircase of the office,Unsafe Condition,field_style_v1
+RT-0199,Traffic signboard at the junction to well site 50 has fallen,Unsafe Condition,field_style_v1
+RT-0200,Emergency shower water is rusty and low pressure,Unsafe Condition,field_style_v1
+RT-0201,Office chairs broken in the conference room,Unsafe Condition,field_style_v1
+RT-0202,The derrick ladder safety cage is bent,Unsafe Condition,field_style_v1
+RT-0203,Electric panel in the rig camp has water ingress after rain,Unsafe Condition,field_style_v1
+RT-0204,"Wind blown sand accumulated on the walkway, slippery",Unsafe Condition,field_style_v1
+RT-0205,Flare stack guy wire is loose,Unsafe Condition,field_style_v1
+RT-0206,Scaffold tag missing on the scaffold at the column,Unsafe Condition,field_style_v1
+RT-0207,The overhead crane in the workshop has no limit switch working,Unsafe Condition,field_style_v1
+RT-0208,Gas cylinder regulator in the lab has cracked hose,Unsafe Condition,field_style_v1
+RT-0209,Pipeline crossing culvert has collapsed partially,Unsafe Condition,field_style_v1
+RT-0210,Bolts missing on the flange of the water injection line,Unsafe Condition,field_style_v1
+RT-0211,Security cabin roof sheet is leaking,Unsafe Condition,field_style_v1
+RT-0212,Earthing strip of the loading gantry broken,Unsafe Condition,field_style_v1
+RT-0213,Pressure relief valve test certificate expired on the steam boiler,Unsafe Condition,field_style_v1
+RT-0214,The gas monitor in the confined space kit has a dead battery,Unsafe Condition,field_style_v1
+RT-0215,Staircase to the second floor has no lighting,Unsafe Condition,field_style_v1
+RT-0216,Water accumulated in the valve pit at the manifold,Unsafe Condition,field_style_v1
+RT-0217,"Grinding wheel of the bench grinder cracked, still mounted",Unsafe Condition,field_style_v1
+RT-0218,Hydrant pump house door jammed and cannot open,Unsafe Condition,field_style_v1
+RT-0219,Old abandoned well head leaking little oil near the village,Unsafe Condition,field_style_v1
+RT-0220,Toolbox tools like hammer have loose handles,Unsafe Condition,field_style_v1
+RT-0221,Mud tank has sharp protruding bolts at head height,Unsafe Condition,field_style_v1
+RT-0222,Walkie talkie charger damaged with exposed wires,Unsafe Condition,field_style_v1
+RT-0223,Air hose couplings without whip checks on the rig,Unsafe Condition,field_style_v1
+RT-0224,Flooring gap near the drill floor edge,Unsafe Condition,field_style_v1
+RT-0225,Tree branches touching the 33 kV line near the camp,Unsafe Condition,field_style_v1
+RT-0226,Chemical store eyewash bottle is empty,Unsafe Condition,field_style_v1
+RT-0227,Chlorine cylinder valve is corroded at the water treatment plant,Unsafe Condition,field_style_v1
+RT-0228,Battery bank room has hydrogen smell and exhaust fan not working,Unsafe Condition,field_style_v1
+RT-0229,"A spanner fell from the monkey board and landed near the floorman, nobody was hurt",Near Miss,field_style_v1
+RT-0230,"While lifting the casing the sling slipped and the pipe dropped, crew was clear of the area",Near Miss,field_style_v1
+RT-0231,"Pickup almost hit a worker at the GGS gate because of a blind turn, driver braked in time",Near Miss,field_style_v1
+RT-0232,Hose whipped during pressure testing and just missed the helper,Near Miss,field_style_v1
+RT-0233,"Gas alarm went off while two workers were entering the tank, they came out immediately",Near Miss,field_style_v1
+RT-0234,Scaffold board slipped under the painter's foot but his harness held him,Near Miss,field_style_v1
+RT-0235,"A small fire started at the grinding spot, extinguished immediately, no injury",Near Miss,field_style_v1
+RT-0236,The trailer brakes failed on the slope but driver stopped it using the handbrake,Near Miss,field_style_v1
+RT-0237,Worker tripped over a cable in the control room and almost fell on the panel,Near Miss,field_style_v1
+RT-0238,"Loose bolt fell from the pipe rack during the wind, landed one meter from the operator",Near Miss,field_style_v1
+RT-0239,"The crane boom touched the tree near the power line, luckily it did not hit the line",Near Miss,field_style_v1
+RT-0240,"Well kicked during tripping, the crew closed the BOP in time, no one hurt",Near Miss,field_style_v1
+RT-0241,"Flange gasket blew out during start-up, operator was standing on the other side",Near Miss,field_style_v1
+RT-0242,"Drum of chemical fell off the forklift, spilled a little, nobody near",Near Miss,field_style_v1
+RT-0243,"Mud pump pop-off valve released suddenly, mud sprayed near the derrickman, not injured",Near Miss,field_style_v1
+RT-0244,"Tyre burst while inflating, the technician had just stepped back",Near Miss,field_style_v1
+RT-0245,"Welding spark set fire to cotton waste, fire watcher put it out quickly",Near Miss,field_style_v1
+RT-0246,The steel plate slipped from the hands of the fitter and landed close to his toe,Near Miss,field_style_v1
+RT-0247,I almost slipped on the oil near the separator but held the handrail,Near Miss,field_style_v1
+RT-0248,"Electric shock felt by the operator when touching the pump body, no injury, earthing found loose",Near Miss,field_style_v1
+RT-0249,"The excavator bucket hit a live cable, power tripped, nobody hurt",Near Miss,field_style_v1
+RT-0250,"Tong line snapped during make-up and the tong swung, crew was not in the swing path",Near Miss,field_style_v1
+RT-0251,"A wasp nest was disturbed at height, worker stayed calm and came down safely",Near Miss,field_style_v1
+RT-0252,"During backing up the tanker nearly hit the fire hydrant, banksman stopped it",Near Miss,field_style_v1
+RT-0253,"H2S alarm at 10 ppm near the well, crew evacuated to muster point, no exposure",Near Miss,field_style_v1
+RT-0254,"The LPG cylinder regulator caught fire in canteen kitchen, staff shut the valve, no injury",Near Miss,field_style_v1
+RT-0255,Scaffold coupler dropped from 8 m and hit the ground next to the pathway,Near Miss,field_style_v1
+RT-0256,The load swung during lifting and nearly struck the rigger's head,Near Miss,field_style_v1
+RT-0257,Vehicle skidded on the wet road near well site 30 and stopped at the edge of the ditch,Near Miss,field_style_v1
+RT-0258,"A crack in the ladder was noticed only when it bent while the worker was on it, he got down safely",Near Miss,field_style_v1
+RT-0259,Chain block hook opened during lifting but load was caught by the second sling,Near Miss,field_style_v1
+RT-0260,A worker almost fell into the open manhole but his colleague pulled him back,Near Miss,field_style_v1
+RT-0261,"Pressure built up in the closed line and the valve bonnet started leaking suddenly, area cleared",Near Miss,field_style_v1
+RT-0262,"Battery exploded in the charging room at night, no one present",Near Miss,field_style_v1
+RT-0263,"Kelly hose came loose and swung across the rig floor, no one on floor at that time",Near Miss,field_style_v1
+RT-0264,"Diesel overflowed from the tank during filling, stopped before reaching the hot engine",Near Miss,field_style_v1
+RT-0265,"During hot work a small flash occurred due to residual gas, welder not hurt",Near Miss,field_style_v1
+RT-0266,Pipe rolled off the rack and stopped just before the walkway where people pass,Near Miss,field_style_v1
+RT-0267,Motorcycle nearly collided with the dumper at the site junction,Near Miss,field_style_v1
+RT-0268,"While opening the pig trap some pressure released and blew the door partially, operator safe",Near Miss,field_style_v1
+RT-0269,"Arc flash happened when breaker was racked in, electrician was wearing proper suit and not hurt",Near Miss,field_style_v1
+RT-0270,"A tree branch fell on the site office roof during the storm, nobody inside",Near Miss,field_style_v1
+RT-0271,"Gas leak from flange caught fire briefly at the compressor, ESD activated, no injury",Near Miss,field_style_v1
+RT-0272,Worker lost balance on the tank roof but grabbed the handrail,Near Miss,field_style_v1
+RT-0273,Forklift load of pipes shifted and fell near the store keeper,Near Miss,field_style_v1
+RT-0274,Drill pipe elevator opened unexpectedly and pipe dropped into the hole,Near Miss,field_style_v1
+RT-0275,"The fan blade broke and flew out of the guard, landing near the operator",Near Miss,field_style_v1
+RT-0276,Helper's glove got caught in the rotating shaft but he pulled his hand out quickly,Near Miss,field_style_v1
+RT-0277,"The mud tank agitator started while cleaning was about to start, crew had not entered yet",Near Miss,field_style_v1
+RT-0278,"Oxygen level dropped in the vessel, the monitor alarmed and the entrant came out",Near Miss,field_style_v1
+RT-0279,"Cable drum rolled down the slope, stopped by the fence",Near Miss,field_style_v1
+RT-0280,"Dropped object from crane basket, landed within the barricaded area only",Near Miss,field_style_v1
+RT-0281,"Sudden flow from annulus when valve opened, operator moved away in time",Near Miss,field_style_v1
+RT-0282,"Truck brake failed at the loading gantry, stopped by the wheel chock",Near Miss,field_style_v1
+RT-0283,"A snake was found inside the control panel while opening it, electrician stepped back safely",Near Miss,field_style_v1
+RT-0284,"Heavy rain washed the soil and the excavator slid towards the trench, operator jumped out safely",Near Miss,field_style_v1
+RT-0285,Bus carrying crew had a near collision with a truck on the highway to Duliajan,Near Miss,field_style_v1
+RT-0286,"Water tanker rolled back as parking brake was not engaged, stopped by the kerb",Near Miss,field_style_v1
+RT-0287,"Gas cylinder fell from the trolley, valve cap saved it from breaking",Near Miss,field_style_v1
+RT-0288,"The portable grinder disc shattered, pieces hit the face shield, no injury",Near Miss,field_style_v1
+RT-0289,"Pressure gauge glass burst during test, operator was wearing goggles",Near Miss,field_style_v1
+RT-0290,"An operator nearly inhaled H2S when opening the sample point, personal monitor alarmed and he moved away",Near Miss,field_style_v1
+RT-0291,"Scaffolding partly collapsed after the shift, no one was on it",Near Miss,field_style_v1
+RT-0292,"Rope of the gin pole broke and load came down on the ground, crew was away",Near Miss,field_style_v1
+RT-0293,"A worker slipped from the second step of the ladder, landed on feet, no injury",Near Miss,field_style_v1
+RT-0294,"Welding cable short-circuited and sparked near the diesel drum, fire watch acted",Near Miss,field_style_v1
+RT-0295,"Crane outrigger sank into soft soil and crane tilted slightly, lift was stopped",Near Miss,field_style_v1
+RT-0296,Worker almost walked into the path of a reversing JCB,Near Miss,field_style_v1
+RT-0297,"The sling eye failed during load test, test weight fell on sand bed",Near Miss,field_style_v1
+RT-0298,"Steam hose burst near the cleaning area, jet missed the helper",Near Miss,field_style_v1
+RT-0299,"Workover rig mast shook in strong wind, operations stopped, no damage",Near Miss,field_style_v1
+RT-0300,"Tank overflowed during receipt, oil stayed inside dyke, no ignition",Near Miss,field_style_v1
+RT-0301,"Vehicle door opened while moving because latch failed, passenger held on",Near Miss,field_style_v1
+RT-0302,Hot oil splashed from the heater drain near the operator's leg but he was wearing coverall,Near Miss,field_style_v1
+RT-0303,Metal piece flew during hammering and hit the helmet of the fitter,Near Miss,field_style_v1
+RT-0304,"At around 3 am at rig 9, the travelling block came down fast and stopped just above the floor, driller applied brake, no one was under",Near Miss,field_style_v1
+RT-0305,"Kal raat ek pipe rack se gira, koi nahi tha neeche, bach gaye",Near Miss,field_style_v1
+RT-0306,"Pressure test ke time hose khul gaya, helper ke paas se nikla",Near Miss,field_style_v1
+RT-0307,"Driver lost control on muddy road near Duliajan and stopped in the field, no damage",Near Miss,field_style_v1
+RT-0308,"During crane lift the outrigger pad cracked, operator lowered the load safely",Near Miss,field_style_v1
+RT-0309,"The ladder slipped on the wet floor while the electrician was stepping on it, he jumped down safely",Near Miss,field_style_v1
+RT-0310,"Flame came out of the heater peep hole when the operator opened it, he moved back in time",Near Miss,field_style_v1
+RT-0311,"The fire extinguisher failed to discharge during a small fire, another extinguisher was used",Near Miss,field_style_v1
+RT-0312,"A car suddenly came in front of the crew bus, driver swerved and avoided accident",Near Miss,field_style_v1
+RT-0313,"Cable jointing kit caught fire in the trench, put out, nobody hurt",Near Miss,field_style_v1
+RT-0314,"During sampling, crude spurted out under pressure, sampler wearing face shield and gloves",Near Miss,field_style_v1
+RT-0315,A dropped hammer from the tank roof landed next to the painter's bucket,Near Miss,field_style_v1
+RT-0316,"The scaffold tube dislodged when a worker leaned on it, he caught the handrail",Near Miss,field_style_v1
+RT-0317,"While energizing the panel there was a loud bang and smoke, the electrician was standing aside",Near Miss,field_style_v1
+RT-0318,"The tank floating roof drain choked and roof tilted after rain, detected on patrol",Near Miss,field_style_v1
+RT-0319,"Gas release from the relief valve outlet near walkway, no one passing at that time",Near Miss,field_style_v1
+RT-0320,The rope of the bucket used to lift tools broke and tools fell inside the barricade,Near Miss,field_style_v1
+RT-0321,"Operator's sleeve touched the rotating shaft but slipped off, no injury",Near Miss,field_style_v1
+RT-0322,"An oil-soaked rag started smouldering near the exhaust, noticed and removed",Near Miss,field_style_v1
+RT-0323,"Pickup brake failed while parking, hit the wall lightly, no injury and no damage",Near Miss,field_style_v1
+RT-0324,A load of plywood fell from the truck during unloading near the helper,Near Miss,field_style_v1
+RT-0325,"The gas monitor alarmed at LEL 20% during tank cleaning, work stopped and area ventilated",Near Miss,field_style_v1
+RT-0326,"Sudden power failure during lift left the load hanging, lowered manually later",Near Miss,field_style_v1
+RT-0327,The trench wall caved in minutes after the workers came out for lunch,Near Miss,field_style_v1
+RT-0328,"Worker slipped on the mud tank ladder, his hand held and he did not fall",Near Miss,field_style_v1
+RT-0329,"A pipe joint came loose during pigging and the line jumped, crew was at safe distance",Near Miss,field_style_v1
+RT-0330,"Helper got his finger crushed between pipe and elevator, taken to hospital",Incident,field_style_v1
+RT-0331,Welder suffered burns on the hand when the torch flashed back,Incident,field_style_v1
+RT-0332,Worker fell from scaffold at 3 m and fractured his leg,Incident,field_style_v1
+RT-0333,"Pickup overturned on the field road, driver injured on head",Incident,field_style_v1
+RT-0334,Electrician got electric shock from live cable and was admitted in hospital,Incident,field_style_v1
+RT-0335,Rigger was hit by swinging load and got shoulder injury,Incident,field_style_v1
+RT-0336,"Fire in the generator enclosure damaged the unit, no injury",Incident,field_style_v1
+RT-0337,"Floorman's hand got caught in the rotary table, lost one finger",Incident,field_style_v1
+RT-0338,"Operator inhaled H2S at the well site and fainted, recovered after oxygen",Incident,field_style_v1
+RT-0339,Contractor slipped on oily floor and broke his wrist,Incident,field_style_v1
+RT-0340,"Chemical splashed into the eyes of the mud engineer, first aid given, eye injury",Incident,field_style_v1
+RT-0341,"Tanker collided with the gate at GGS, gate damaged and driver bruised",Incident,field_style_v1
+RT-0342,"Worker's leg was cut by grinder while cutting pipe, 6 stitches",Incident,field_style_v1
+RT-0343,"Crane toppled while lifting, boom damaged, operator minor injuries",Incident,field_style_v1
+RT-0344,Hot oil splashed on the operator's face causing burns,Incident,field_style_v1
+RT-0345,Worker got heat stroke while working in the sun on the pipeline job,Incident,field_style_v1
+RT-0346,"Gas cylinder burst in the store, roof sheet damaged, no one injured",Incident,field_style_v1
+RT-0347,Fitter's toe fractured when the valve fell on his foot,Incident,field_style_v1
+RT-0348,"Motorcycle accident near the camp, employee injured on knee",Incident,field_style_v1
+RT-0349,"Explosion in the heater during light-up, heater damaged, operator hurt",Incident,field_style_v1
+RT-0350,Helper fell into the trench and injured his back,Incident,field_style_v1
+RT-0351,Pipe rolled over the worker's foot causing fracture,Incident,field_style_v1
+RT-0352,"Driver hit a cow on the road at night, vehicle damaged",Incident,field_style_v1
+RT-0353,Technician's hand burned by steam when he opened the drain valve,Incident,field_style_v1
+RT-0354,"Worker bitten by snake at the well site, shifted to hospital",Incident,field_style_v1
+RT-0355,"The trailer tipped over while unloading pipes, pipes damaged, no injury",Incident,field_style_v1
+RT-0356,"Nail pierced the shoe of the labourer, injury to sole of foot",Incident,field_style_v1
+RT-0357,"Operator lost consciousness inside the tank due to low oxygen, rescued by team",Incident,field_style_v1
+RT-0358,"Forklift hit the rack and the rack collapsed, material damaged",Incident,field_style_v1
+RT-0359,Two workers injured when the scaffolding collapsed at the tank,Incident,field_style_v1
+RT-0360,Flash fire during hot work burned the arm of the welder,Incident,field_style_v1
+RT-0361,"Rig floor worker was hit by the tong handle, rib fracture",Incident,field_style_v1
+RT-0362,Worker's eye injured by flying chip during chipping work,Incident,field_style_v1
+RT-0363,"Electrical panel caught fire in the substation, damage to panel and cables",Incident,field_style_v1
+RT-0364,"A labourer fell down from the ladder and got head injury, was not wearing helmet",Incident,field_style_v1
+RT-0365,"Contractor got his hand cut on sharp sheet edge, first aid given",Incident,field_style_v1
+RT-0366,Oil spill of around 200 litres from ruptured pipeline into the paddy field,Incident,field_style_v1
+RT-0367,"Bus accident on the way to site, three crew members injured",Incident,field_style_v1
+RT-0368,Worker suffered back injury while manually lifting heavy flange,Incident,field_style_v1
+RT-0369,Steam line rupture scalded the leg of the helper,Incident,field_style_v1
+RT-0370,Pipe fell from the forklift and hit the storekeeper's leg,Incident,field_style_v1
+RT-0371,Operator got chemical burn from caustic while preparing mud,Incident,field_style_v1
+RT-0372,"Truck hit the overhead pipe rack, pipe rack damaged",Incident,field_style_v1
+RT-0373,"Gas leak ignited at the compressor, compressor damaged, one person with minor burns",Incident,field_style_v1
+RT-0374,"Worker's finger caught in the chain block, finger injured",Incident,field_style_v1
+RT-0375,Employee fainted in the control room due to fumes from battery room,Incident,field_style_v1
+RT-0376,"Vehicle rolled into ditch at well site 22, driver hospitalized",Incident,field_style_v1
+RT-0377,"Hammer slipped and hit the fitter's hand, swelling and fracture",Incident,field_style_v1
+RT-0378,"The crane hook hit the rigger's head, he was wearing helmet but got concussion",Incident,field_style_v1
+RT-0379,"Worker electrocuted while repairing street light, died on the spot",Incident,field_style_v1
+RT-0380,A rotating shaft pulled the sleeve of the operator and injured his arm,Incident,field_style_v1
+RT-0381,"Fire in the canteen kitchen, some equipment burnt, no one injured",Incident,field_style_v1
+RT-0382,Workman fell from the tank roof and died,Incident,field_style_v1
+RT-0383,"Tractor trolley overturned, labour injured",Incident,field_style_v1
+RT-0384,"Worker got dust in the eye while cleaning, eye irritation and treatment given",Incident,field_style_v1
+RT-0385,"Contractor fell in the mud pit and swallowed mud, treated in hospital",Incident,field_style_v1
+RT-0386,"Excavator hit and damaged the buried gas pipeline, gas leaked, area evacuated",Incident,field_style_v1
+RT-0387,Worker injured by broken sling during lifting,Incident,field_style_v1
+RT-0388,The heater tube ruptured and fire damaged the furnace,Incident,field_style_v1
+RT-0389,"Helper stung by bees at height, fell and sprained ankle",Incident,field_style_v1
+RT-0390,Scald injury to cook from boiling water in the canteen,Incident,field_style_v1
+RT-0391,"Welder got an electric shock from the welding holder, minor burn on fingers",Incident,field_style_v1
+RT-0392,"Vehicle hit the parked tanker, both vehicles damaged",Incident,field_style_v1
+RT-0393,Worker injured his hand while removing jam from conveyor,Incident,field_style_v1
+RT-0394,"Drilling line snapped and the travelling block fell, derrick damaged",Incident,field_style_v1
+RT-0395,"Security guard slipped from the watch tower stairs, knee injury",Incident,field_style_v1
+RT-0396,"Operator exposed to benzene vapour, headache and vomiting, medical check done",Incident,field_style_v1
+RT-0397,Pipe fitter got injured by pipe spring back during cutting,Incident,field_style_v1
+RT-0398,A fire in the dry grass near the well site burnt the fence and cables,Incident,field_style_v1
+RT-0399,Electrical fire in site office damaged computers and documents,Incident,field_style_v1
+RT-0400,"Contractor worker's leg trapped under falling pipe, fractured",Incident,field_style_v1
+RT-0401,"Diesel generator exploded, damage to container, one injured",Incident,field_style_v1
+RT-0402,Staff sprained ankle in the office stairs,Incident,field_style_v1
+RT-0403,Crew member got hand injury from the slips while tripping,Incident,field_style_v1
+RT-0404,Forklift ran over the helper's foot,Incident,field_style_v1
+RT-0405,"Yesterday at rig 5 the floorman's thumb was crushed by the slips, he was taken to OIL hospital Duliajan",Incident,field_style_v1
+RT-0406,"Helper ka haath grinder se kat gaya, 4 tanke lage",Incident,field_style_v1
+RT-0407,"Pipeline leak caught fire at the ROW near village, crop damaged, no injury",Incident,field_style_v1
+RT-0408,Operator slipped from the tank ladder and dislocated his shoulder,Incident,field_style_v1
+RT-0409,"Fitter's face hit by the valve handle when it spun, cut on the lip",Incident,field_style_v1
+RT-0410,"Truck carrying crude overturned on the highway, oil spilled on the road",Incident,field_style_v1
+RT-0411,"Worker fainted due to heat inside the mud pump house and fell, head injury",Incident,field_style_v1
+RT-0412,Welder's eye got flash burn because he looked at the arc without glasses,Incident,field_style_v1
+RT-0413,Employee tripped on cable in office and broke his wrist,Incident,field_style_v1
+RT-0414,"The compressor caught fire due to lube oil leak, compressor badly damaged",Incident,field_style_v1
+RT-0415,"Contractor's hand trapped in the crane hook block, two fingers fractured",Incident,field_style_v1
+RT-0416,"Worker inhaled chlorine gas at water treatment plant, admitted for observation",Incident,field_style_v1
+RT-0417,A drill collar fell on the rig floor and damaged the rotary table,Incident,field_style_v1
+RT-0418,"Crew bus hit a tree, driver and two passengers injured",Incident,field_style_v1
+RT-0419,Security staff injured by stray dog bite at the gate,Incident,field_style_v1
+RT-0420,Electrical short circuit burned the hand of the technician,Incident,field_style_v1
+RT-0421,Gas explosion in canteen kitchen injured the cook,Incident,field_style_v1
+RT-0422,Hot water from the radiator burned the mechanic's arm,Incident,field_style_v1
+RT-0423,Drilling crew member fell from the mud tank walkway and fractured ribs,Incident,field_style_v1
+RT-0424,Chemical drum burst and acid burned the leg of the helper,Incident,field_style_v1

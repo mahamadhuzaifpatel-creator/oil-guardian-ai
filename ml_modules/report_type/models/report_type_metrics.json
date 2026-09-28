@@ -1,0 +1,29 @@
+{
+  "trained_at": "2026-09-28T17:36:00.560612+00:00",
+  "chosen_variant": "V3 + field-style + cue words",
+  "use_cues": true,
+  "sklearn_version": "1.9.1",
+  "variants": [
+    {
+      "variant": "V1 synthetic only",
+      "E1 hazardous (main)": 0.6667,
+      "E2 all 72": 0.5139,
+      "E3 field CV": NaN
+    },
+    {
+      "variant": "V2 + field-style data",
+      "E1 hazardous (main)": 0.9,
+      "E2 all 72": 0.6389,
+      "E3 field CV": 0.8019
+    },
+    {
+      "variant": "V3 + field-style + cue words",
+      "E1 hazardous (main)": 1.0,
+      "E2 all 72": 0.7361,
+      "E3 field CV": 0.8608
+    }
+  ],
+  "e1_size": 30,
+  "e2_size": 72,
+  "field_style_reports": 424
+}

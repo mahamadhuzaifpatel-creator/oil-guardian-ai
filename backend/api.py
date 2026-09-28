@@ -20,6 +20,8 @@ from ensemble.soft_voting import soft_vote
 from ensemble.sif_scoring import score_sif
 
 from ml_modules.iogp_rule.inference import classify as classify_iogp_rule
+from ml_modules.report_type.inference import classify as classify_report_type
+from ml_modules.report_type.inference import is_available as report_type_available
 
 
 app = FastAPI(
@@ -147,6 +149,15 @@ def analyze_report(request: AnalyzeRequest):
     ensemble["iogp_top_rules"] = rule_result["top_rules"]
     ensemble["iogp_low_confidence"] = rule_result["low_confidence"]
 
+    # Report type (Unsafe Act / Unsafe Condition / Near Miss). Optional:
+    # if the model hasn't been trained yet, the app falls back to manual choice.
+    report_type = None
+    if report_type_available():
+        try:
+            report_type = classify_report_type(text)
+        except Exception as error:
+            print("Report type classifier error:", error)
+
     return {
         "text": text,
 
@@ -156,5 +167,7 @@ def analyze_report(request: AnalyzeRequest):
             "unsafe_condition": unsafe_condition
         },
 
-        "ensemble": ensemble
+        "ensemble": ensemble,
+
+        "report_type": report_type
     }

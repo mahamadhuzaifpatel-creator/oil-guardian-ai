@@ -41,6 +41,9 @@ export default function Employee() {
   const [aiResult, setAiResult] = useState(null);
   const [risk, setRisk] = useState("");
   const [category, setCategory] = useState("");
+  const [reportType, setReportType] = useState("");
+  const [categorySource, setCategorySource] = useState("");
+  const [aiTypeSuggestion, setAiTypeSuggestion] = useState(null);
   const [sifRisk, setSifRisk] = useState("");
   const [iogpRule, setIogpRule] = useState("");
 
@@ -176,6 +179,13 @@ export default function Employee() {
       return;
     }
 
+    if (!reportType) {
+      setAnalysisError(
+        "Please choose what you are reporting (or pick \"Not sure\" and the AI will suggest a type)."
+      );
+      return;
+    }
+
     setAnalyzing(true);
     setAnalysisError("");
     setSubmitError("");
@@ -231,7 +241,9 @@ export default function Employee() {
 
       if (sifPercentage >= 70) {
         displayedRisk = "High Risk";
-      } else if (sifPercentage >= 40) {
+      } else if (sifPercentage >= 50) {
+        // 50% = the validated SIF decision threshold, so every
+        // SIF-flagged report is at least Moderate and every non-SIF is Low
         displayedRisk = "Moderate Risk";
       } else {
         displayedRisk = "Low Risk";
@@ -284,17 +296,23 @@ export default function Employee() {
         `${sifPercentage.toFixed(1)}%`
       );
 
-      setCategory(
-        strongestModel?.data?.category ||
-          strongestModel?.key ||
-          ensemble.category ||
-          "Safety Observation"
-      );
+      // Report type: the employee's answer wins; "Not sure" uses the AI suggestion.
+      // The AI suggestion is only a hint (about 50% accurate on independent reports).
+      const aiType = data.report_type || null;
+      setAiTypeSuggestion(aiType);
+
+      if (reportType === "auto") {
+        setCategory(aiType?.type || "Unclassified");
+        setCategorySource(aiType ? "ai" : "none");
+      } else {
+        setCategory(reportType);
+        setCategorySource("employee");
+      }
 
       setIogpRule(
-        strongestModel?.data?.iogp_rule ||
-          ensemble.iogp_rule ||
-          "Operational Safety"
+        ensemble.iogp_rule ||
+          strongestModel?.data?.iogp_rule ||
+          "Not determined"
       );
 
       setAiResult(data);
@@ -398,6 +416,8 @@ export default function Employee() {
                   ? sifPercentage
                   : null,
               iogp_rule: iogpRule,
+              category_source: categorySource || null,
+              report_type_ai: aiResult?.report_type ?? null,
               models: aiResult?.models ?? null,
               ensemble: aiResult?.ensemble ?? null
             }
@@ -793,15 +813,19 @@ export default function Employee() {
                 </option>
 
                 <option>
-                  Digboi Refinery
+                  Moran Oilfield
                 </option>
 
                 <option>
-                  Numaligarh Refinery
+                  Rajasthan Fields (Jodhpur)
                 </option>
 
                 <option>
-                  Guwahati Refinery
+                  OIL Pipeline Station (Guwahati)
+                </option>
+
+                <option>
+                  Numaligarh Refinery (NRL)
                 </option>
 
               </select>
@@ -858,6 +882,58 @@ export default function Employee() {
 
                 <option>
                   HSE
+                </option>
+
+              </select>
+
+            </div>
+
+          </div>
+
+          <div className="employee-context-card">
+
+            <div className="employee-context-icon">
+              <FileText size={18} />
+            </div>
+
+            <div className="employee-context-content">
+
+              <label>
+                WHAT ARE YOU REPORTING?
+              </label>
+
+              <select
+                value={reportType}
+                onChange={(event) => {
+                  setReportType(
+                    event.target.value
+                  );
+                  setHasAnalyzed(false);
+                }}
+              >
+
+                <option value="" disabled>
+                  Choose one
+                </option>
+
+                <option value="Unsafe Act">
+                  Someone was doing something unsafe
+                </option>
+
+                <option value="Unsafe Condition">
+                  Something in the workplace is unsafe (equipment, area, material)
+                </option>
+
+                <option value="Near Miss">
+                  Something almost happened, but nobody was hurt
+                </option>
+
+                <option value="Incident">
+                  Someone got hurt, or damage happened
+                </option>
+
+                <option value="auto">
+                  Not sure – let the AI suggest
                 </option>
 
               </select>
@@ -1271,7 +1347,7 @@ export default function Employee() {
                   <div className="employee-result-card">
 
                     <span>
-                      SIF PROBABILITY
+                      SIF POTENTIAL SCORE
                     </span>
 
                     <strong>
@@ -1291,6 +1367,20 @@ export default function Employee() {
                       {category ||
                         "Safety Observation"}
                     </strong>
+
+                    {categorySource === "ai" && (
+                      <small style={{ display: "block", marginTop: "4px", color: "#94a3b8", fontSize: "11px" }}>
+                        AI-suggested ({aiTypeSuggestion?.confidence}%) · officer will confirm
+                      </small>
+                    )}
+
+                    {categorySource === "employee" &&
+                      aiTypeSuggestion &&
+                      aiTypeSuggestion.type !== category && (
+                        <small style={{ display: "block", marginTop: "4px", color: "#94a3b8", fontSize: "11px" }}>
+                          AI thinks it may be: {aiTypeSuggestion.type}
+                        </small>
+                      )}
 
                   </div>
 
