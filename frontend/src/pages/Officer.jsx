@@ -26,6 +26,7 @@ import {
 import { motion, AnimatePresence } from "framer-motion";
 
 import { supabase } from "../lib/supabase";
+import DashboardView from "../components/dashboard/DashboardView";
 import { useAuth } from "../context/AuthContext";
 
 /* ---------- Display helpers ---------- */
@@ -155,6 +156,7 @@ function Officer() {
   const [statusFilter, setStatusFilter] = useState("all");
 
   const [showProfile, setShowProfile] = useState(false);
+  const [view, setView] = useState("feed");
   const [selectedLog, setSelectedLog] = useState(null);
 
   const [editStatus, setEditStatus] = useState("submitted");
@@ -359,6 +361,35 @@ function Officer() {
                 </button>
               </div>
 
+              <div style={{ display: "flex", gap: "8px", margin: "4px 0 18px" }}>
+                {[
+                  { key: "feed", label: "Report Feed" },
+                  { key: "analytics", label: "SIF-Precursor Analytics" }
+                ].map((tab) => (
+                  <button
+                    key={tab.key}
+                    className="cursor-target"
+                    onClick={() => setView(tab.key)}
+                    style={{
+                      padding: "8px 16px",
+                      borderRadius: "8px",
+                      border: "1px solid rgba(249, 115, 22, 0.45)",
+                      background: view === tab.key ? "rgba(249, 115, 22, 0.18)" : "transparent",
+                      color: view === tab.key ? "#fb923c" : "#94a3b8",
+                      fontWeight: 600,
+                      fontSize: "13px",
+                      cursor: "pointer"
+                    }}
+                  >
+                    {tab.label}
+                  </button>
+                ))}
+              </div>
+
+              {view === "analytics" ? (
+                <DashboardView reports={reports} loading={loading} />
+              ) : (
+              <>
               <div className="telemetry-metrics-grid">
                 <div className="metric-card">
                   <div className="metric-top text-red"><span>High Risk</span><Flame size={14} /></div>
@@ -495,6 +526,8 @@ function Officer() {
                   </tbody>
                 </table>
               </div>
+              </>
+              )}
             </motion.div>
           ) : (
             /* ========== DETAILED REPORT VIEW ========== */
