@@ -1,0 +1,117 @@
+{
+  "trained_at": "2026-09-28T12:56:16.625639+00:00",
+  "data": "ml_modules\\near_miss\\data\\raw\\near_miss_800_varied_dataset.csv",
+  "n_reports": 799,
+  "labels": [
+    "Bypassing Safety Controls",
+    "Confined Space",
+    "Driving",
+    "Energy Isolation",
+    "Hot Work",
+    "Line of Fire",
+    "None",
+    "Safe Mechanical Lifting",
+    "Work Authorisation",
+    "Working at Height"
+  ],
+  "embedder": "sentence-transformers/all-MiniLM-L6-v2",
+  "sklearn_version": "1.9.1",
+  "stratified_80_20": {
+    "accuracy": 0.55,
+    "macro_f1": 0.5076
+  },
+  "grouped_by_barrier_failure": {
+    "accuracy": 0.4168,
+    "macro_f1": 0.3446
+  },
+  "external_test_set": {
+    "correct": 8,
+    "total": 12,
+    "rows": [
+      {
+        "text": "Electrician worked on live 11kV panel without lockout or isolation verification",
+        "expected": "Energy Isolation",
+        "predicted": "Energy Isolation",
+        "confidence": 68.1,
+        "pass": true
+      },
+      {
+        "text": "Welder started cutting on crude pipeline at GGS without gas test and without hot work permit",
+        "expected": "Hot Work",
+        "predicted": "Hot Work",
+        "confidence": 68.5,
+        "pass": true
+      },
+      {
+        "text": "Helper entered mud tank to clean it without gas testing and no standby person outside",
+        "expected": "Confined Space",
+        "predicted": "Confined Space",
+        "confidence": 53.1,
+        "pass": true
+      },
+      {
+        "text": "Rigger stood directly under suspended drill collar while crane was lifting it",
+        "expected": "Safe Mechanical Lifting",
+        "predicted": "Safe Mechanical Lifting",
+        "confidence": 47.8,
+        "pass": true
+      },
+      {
+        "text": "Derrickman climbed to monkey board at 25 m without full-body harness",
+        "expected": "Working at Height",
+        "predicted": "Working at Height",
+        "confidence": 34.2,
+        "pass": true
+      },
+      {
+        "text": "Pressure safety valve on separator found gagged to keep production running",
+        "expected": "Bypassing Safety Controls",
+        "predicted": "Energy Isolation",
+        "confidence": 23.8,
+        "pass": false
+      },
+      {
+        "text": "Worker stood in front of pressurised hose connection during pressure test, hose whipped and missed him by a metre",
+        "expected": "Line of Fire",
+        "predicted": "Hot Work",
+        "confidence": 20.0,
+        "pass": false
+      },
+      {
+        "text": "Contractor drove pickup inside field at high speed while using mobile phone, no seatbelt",
+        "expected": "Driving",
+        "predicted": "Driving",
+        "confidence": 33.3,
+        "pass": true
+      },
+      {
+        "text": "Maintenance crew started pump overhaul without a valid work permit",
+        "expected": "Work Authorisation",
+        "predicted": "Work Authorisation",
+        "confidence": 18.7,
+        "pass": true
+      },
+      {
+        "text": "Worker almost slipped on oil spill near maintenance area, no injury",
+        "expected": "None",
+        "predicted": "Working at Height",
+        "confidence": 30.2,
+        "pass": false
+      },
+      {
+        "text": "Water cooler in canteen not working",
+        "expected": "None",
+        "predicted": "Hot Work",
+        "confidence": 37.3,
+        "pass": false
+      },
+      {
+        "text": "Office staff not wearing ID card inside admin building",
+        "expected": "None",
+        "predicted": "None",
+        "confidence": 18.4,
+        "pass": true
+      }
+    ]
+  }
+}

@@ -18,6 +18,8 @@ from ml_modules.unsafe_condition.inference import (
 
 from ensemble.soft_voting import soft_vote
 
+from ml_modules.iogp_rule.inference import classify as classify_iogp_rule
+
 
 app = FastAPI(
     title="OIL Guardian AI API",
@@ -66,6 +68,7 @@ def warmup_models():
         analyze_near_miss(sample)
         analyze_unsafe_act(sample)
         analyze_unsafe_condition(sample)
+        classify_iogp_rule(sample)
         print("All models loaded and ready.")
     except Exception as error:
         print("Model warmup failed:", error)
@@ -118,6 +121,26 @@ def analyze_report(request: AnalyzeRequest):
         unsafe_act["confidence"] / 100,
         unsafe_condition["confidence"] / 100
     )
+
+    # One trained classifier decides the IOGP Life-Saving Rule for the report.
+    # The old keyword-based labels are kept as "keyword_rule" for reference.
+    try:
+        rule_result = classify_iogp_rule(text)
+    except Exception as error:
+        print("IOGP rule classifier error:", error)
+        raise HTTPException(
+            status_code=500,
+            detail="IOGP rule classification failed. Please try again."
+        )
+
+    for model_output in (near_miss, unsafe_act, unsafe_condition):
+        model_output["keyword_rule"] = model_output.get("iogp_rule")
+        model_output["iogp_rule"] = rule_result["rule"]
+
+    ensemble["iogp_rule"] = rule_result["rule"]
+    ensemble["iogp_rule_confidence"] = rule_result["confidence"]
+    ensemble["iogp_top_rules"] = rule_result["top_rules"]
+    ensemble["iogp_low_confidence"] = rule_result["low_confidence"]
 
     return {
         "text": text,
