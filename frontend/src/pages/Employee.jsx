@@ -19,6 +19,16 @@ import {
 import { AnimatePresence, motion } from "framer-motion";
 
 import AccountControls from "../components/AccountControls";
+
+// Full meaning of each report type, shown under the dropdown
+const REPORT_TYPE_HELP = {
+  "": "Pick the closest match. Choose “Not sure” and the AI will suggest one.",
+  "Unsafe Act": "Unsafe Act — a person was seen doing something unsafe (no permit, no PPE, bypassing a control). Nothing happened yet.",
+  "Unsafe Condition": "Unsafe Condition — equipment, an area or a material is in an unsafe state (broken, leaking, missing guard). Nothing happened yet.",
+  "Near Miss": "Near Miss — an event happened that could have hurt someone (something fell, released or slipped), but nobody was hurt.",
+  "Incident": "Incident — someone was hurt, or something was damaged, spilled or burnt.",
+  "auto": "Not sure — the AI will suggest a type from your description; a safety officer confirms it."
+};
 import { supabase } from "../lib/supabase";
 import { useAuth } from "../context/AuthContext";
 
@@ -1064,6 +1074,7 @@ export default function Employee() {
 
               <select
                 value={reportType}
+                title={REPORT_TYPE_HELP[reportType]}
                 onChange={(event) => {
                   setReportType(
                     event.target.value
@@ -1077,26 +1088,38 @@ export default function Employee() {
                 </option>
 
                 <option value="Unsafe Act">
-                  Someone was doing something unsafe
+                  Unsafe Act — person doing something unsafe
                 </option>
 
                 <option value="Unsafe Condition">
-                  Something in the workplace is unsafe (equipment, area, material)
+                  Unsafe Condition — unsafe equipment or area
                 </option>
 
                 <option value="Near Miss">
-                  Something almost happened, but nobody was hurt
+                  Near Miss — almost happened, no one hurt
                 </option>
 
                 <option value="Incident">
-                  Someone got hurt, or damage happened
+                  Incident — someone hurt or damage done
                 </option>
 
                 <option value="auto">
-                  Not sure – let the AI suggest
+                  Not sure — let the AI suggest
                 </option>
 
               </select>
+
+              <small
+                style={{
+                  display: "block",
+                  marginTop: "6px",
+                  color: "#94a3b8",
+                  fontSize: "11.5px",
+                  lineHeight: 1.4
+                }}
+              >
+                {REPORT_TYPE_HELP[reportType]}
+              </small>
 
             </div>
 

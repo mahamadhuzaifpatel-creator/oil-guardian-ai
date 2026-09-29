@@ -47,6 +47,23 @@ export function isSifReport(row) {
   return row?.is_sif === true || row?.is_sif === "true";
 }
 
+export function riskTierOf(row) {
+  const tier = String(row?.risk_tier || "").toLowerCase();
+  if (tier.startsWith("high")) return "High";
+  if (tier.startsWith("moderate") || tier.startsWith("medium")) return "Moderate";
+  if (tier.startsWith("low")) return "Low";
+  const pct = Number(row?.sif_percentage);
+  if (!Number.isFinite(pct)) return "Unknown";
+  return pct >= 70 ? "High" : pct >= 50 ? "Moderate" : "Low";
+}
+
+function countBy(rows, key, order = []) {
+  const counts = {};
+  rows.forEach((r) => (counts[r[key]] = (counts[r[key]] || 0) + 1));
+  const keys = [...order.filter((k) => counts[k]), ...Object.keys(counts).filter((k) => !order.includes(k))];
+  return keys.map((k) => ({ label: k, value: counts[k] }));
+}
+
 export function normaliseRow(row) {
   const category = row.category || "";
   return {
@@ -58,6 +75,9 @@ export function normaliseRow(row) {
     rule: normaliseRule(row.iogp_rule),
     isSif: isSifReport(row),
     energy: Object.keys(row?.ai_result?.ensemble?.high_energy_evidence || {}),
+    riskTier: riskTierOf(row),
+    status: row.status || "submitted",
+    inputMode: (row.input_mode || "text").toLowerCase(),
   };
 }
 
@@ -146,5 +166,9 @@ export function calculateDashboardMetrics(records = []) {
     heatmap,
     energySources,
     trend,
+    riskTierCounts: countBy(rows, "riskTier", ["High", "Moderate", "Low", "Unknown"]),
+    reportTypeCounts: countBy(rows, "reportType", ["Unsafe Act", "Unsafe Condition", "Near Miss", "Incident"]),
+    statusCounts: countBy(rows, "status", ["submitted", "under_review", "action_required", "closed"]),
+    inputModeCounts: countBy(rows, "inputMode", ["text", "voice", "ocr"]),
   };
 }
