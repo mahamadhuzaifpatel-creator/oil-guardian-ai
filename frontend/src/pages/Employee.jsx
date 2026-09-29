@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   AlertTriangle,
   Camera,
@@ -59,14 +59,14 @@ export default function Employee() {
 
   const [isListening, setIsListening] = useState(false);
   const [ocrLoading, setOcrLoading] = useState(false);
+  const [ocrProgress, setOcrProgress] = useState(0);
+  const [inputNotice, setInputNotice] = useState("");
+  const recognitionRef = useRef(null);
 
   const API_URL =
     import.meta.env.VITE_API_URL ||
     "http://127.0.0.1:8000";
-  
-  const OCR_API_URL =
-    import.meta.env.VITE_OCR_API_URL ||
-    "http://127.0.0.1:8001";  
+
 
   useEffect(() => {
     const loadTransmissions = async () => {
@@ -497,6 +497,17 @@ export default function Employee() {
     }
   };
 
+  // Browser speech recognition (Chrome / Edge). Click once to start,
+  // click again to stop. Spoken text is added to the report box.
+  const VOICE_ERRORS = {
+    "not-allowed": "Microphone permission was blocked. Allow the microphone in the browser address bar and try again.",
+    "service-not-allowed": "Microphone permission was blocked. Allow the microphone in the browser address bar and try again.",
+    "no-speech": "No speech was detected. Click Voice and speak clearly.",
+    "audio-capture": "No microphone was found on this device.",
+    "network": "The browser's speech service could not be reached. Use Google Chrome with an internet connection (Brave and Firefox are not supported).",
+    "aborted": ""
+  };
+
   const startVoiceInput = () => {
     const SpeechRecognition =
       window.SpeechRecognition ||
@@ -504,59 +515,133 @@ export default function Employee() {
 
     if (!SpeechRecognition) {
       setAnalysisError(
-        "Voice recognition is not supported by this browser."
+        "Voice input is not supported by this browser. Please use Google Chrome or Microsoft Edge."
       );
       return;
     }
 
-    if (isListening) {
+    if (isListening && recognitionRef.current) {
+      recognitionRef.current.stop();
       return;
     }
 
-    const recognition =
-      new SpeechRecognition();
+    const recognition = new SpeechRecognition();
+    recognitionRef.current = recognition;
 
     recognition.lang = "en-IN";
     recognition.interimResults = false;
-    recognition.continuous = false;
+    recognition.continuous = true;
 
     recognition.onstart = () => {
       setIsListening(true);
       setAnalysisError("");
+      setInputNotice("Listening... click Voice again to stop.");
     };
 
     recognition.onresult = (event) => {
-      const transcript =
-        event.results?.[0]?.[0]
-          ?.transcript || "";
-
-      if (transcript) {
-        setReport(
-          (previous) =>
-            previous
-              ? `${previous} ${transcript}`
-              : transcript
-        );
+      let spoken = "";
+      for (let i = event.resultIndex; i < event.results.length; i += 1) {
+        if (event.results[i].isFinal) {
+          spoken += event.results[i][0].transcript;
+        }
+      }
+      spoken = spoken.trim();
+      if (spoken) {
+        setHasAnalyzed(false);
+        setReport((previous) => (previous ? `${previous} ${spoken}` : spoken));
       }
     };
 
     recognition.onerror = (event) => {
-      console.error(
-        "Speech recognition error:",
-        event.error
-      );
-
-      setAnalysisError(
-        `Voice input failed: ${event.error}`
-      );
+      console.error("Speech recognition error:", event.error);
+      const message = VOICE_ERRORS[event.error] ?? `Voice input failed (${event.error}). Please type the report instead.`;
+      if (message) setAnalysisError(message);
     };
 
     recognition.onend = () => {
       setIsListening(false);
+      setInputNotice("");
+      recognitionRef.current = null;
     };
 
-    recognition.start();
+    try {
+      recognition.start();
+    } catch (error) {
+      console.error("Could not start speech recognition:", error);
+      setAnalysisError("Voice input could not start. Please try again.");
+    }
   };
+
+  // Clean up a phone photo before OCR: scale to a good size, convert to
+  // grayscale, stretch contrast and remove uneven lighting (shadows, paper tint).
+  const preprocessForOcr = (file) =>
+    new Promise((resolve, reject) => {
+      const url = URL.createObjectURL(file);
+      const img = new Image();
+
+      img.onload = () => {
+        const targetWidth = Math.min(2400, Math.max(1600, img.width));
+        const scale = targetWidth / img.width;
+        const width = Math.round(img.width * scale);
+        const height = Math.round(img.height * scale);
+
+        const canvas = document.createElement("canvas");
+        canvas.width = width;
+        canvas.height = height;
+        const ctx = canvas.getContext("2d", { willReadFrequently: true });
+        ctx.drawImage(img, 0, 0, width, height);
+        URL.revokeObjectURL(url);
+
+        const image = ctx.getImageData(0, 0, width, height);
+        const px = image.data;
+        const gray = new Float32Array(width * height);
+        for (let i = 0, j = 0; i < px.length; i += 4, j += 1) {
+          gray[j] = 0.299 * px[i] + 0.587 * px[i + 1] + 0.114 * px[i + 2];
+        }
+
+        // Estimate the paper brightness with a coarse block grid,
+        // then divide it out so shadows and gradients disappear.
+        const block = 48;
+        const bw = Math.ceil(width / block);
+        const bh = Math.ceil(height / block);
+        const background = new Float32Array(bw * bh);
+        for (let by = 0; by < bh; by += 1) {
+          for (let bx = 0; bx < bw; bx += 1) {
+            let max = 0;
+            for (let y = by * block; y < Math.min(height, (by + 1) * block); y += 4) {
+              for (let x = bx * block; x < Math.min(width, (bx + 1) * block); x += 4) {
+                const v = gray[y * width + x];
+                if (v > max) max = v;
+              }
+            }
+            background[by * bw + bx] = Math.max(max, 1);
+          }
+        }
+
+        for (let y = 0; y < height; y += 1) {
+          for (let x = 0; x < width; x += 1) {
+            const j = y * width + x;
+            const bg = background[Math.floor(y / block) * bw + Math.floor(x / block)];
+            const normalised = Math.min(255, (gray[j] / bg) * 255);
+            // Pen strokes become solid black, paper becomes white
+            const value = normalised < 185 ? 0 : 255;
+            const i = j * 4;
+            px[i] = px[i + 1] = px[i + 2] = value;
+            px[i + 3] = 255;
+          }
+        }
+
+        ctx.putImageData(image, 0, 0);
+        resolve(canvas);
+      };
+
+      img.onerror = () => {
+        URL.revokeObjectURL(url);
+        reject(new Error("This image could not be opened. Please try another photo."));
+      };
+
+      img.src = url;
+    });
 
   const handleOCRUpload = async (event) => {
     const file = event.target.files?.[0];
@@ -593,82 +678,62 @@ export default function Employee() {
     setSifRisk("");
     setIogpRule("");
 
+    setOcrProgress(0);
+    setInputNotice("");
+
+    let worker = null;
+
     try {
-      const formData = new FormData();
+      // OCR runs entirely in the browser (Tesseract.js), so no OCR server is needed.
+      // The library is only downloaded when someone actually uses OCR.
+      const { createWorker } = await import("tesseract.js");
 
-      formData.append("file", file);
-
-      const response = await fetch(
-        `${OCR_API_URL}/api/ocr`,
-        {
-          method: "POST",
-          body: formData
-        }
-      );
-
-      if (!response.ok) {
-        let errorMessage =
-          `OCR server returned HTTP ${response.status}`;
-
-        try {
-          const errorData =
-            await response.json();
-
-          if (errorData?.detail) {
-            errorMessage = errorData.detail;
+      worker = await createWorker("eng", 1, {
+        logger: (message) => {
+          if (message.status === "recognizing text") {
+            setOcrProgress(Math.round((message.progress || 0) * 100));
           }
-        } catch {
-          // Keep the HTTP error message.
         }
+      });
 
-        throw new Error(errorMessage);
-      }
+      const cleanedImage = await preprocessForOcr(file);
+      const { data } = await worker.recognize(cleanedImage);
 
-      const data = await response.json();
-
-      if (!data.success) {
-        throw new Error(
-          data.detail ||
-            "OCR processing was unsuccessful."
-        );
-      }
-
-      const extractedText =
-        data.text?.trim();
+      const extractedText = (data?.text || "")
+        .split("\n")
+        .map((line) => line.trim())
+        // Drop stray marks: keep lines that contain a real word (3+ letters)
+        .filter((line) => /[A-Za-z]{3,}/.test(line))
+        .join(" ")
+        .replace(/\s+/g, " ")
+        .trim();
 
       if (!extractedText) {
         throw new Error(
-          "OCR could not detect readable text in this image."
+          "No readable text was found in this image. Try a clearer, well-lit photo of printed or typed text."
         );
       }
 
       setReport(extractedText);
       setMode("ocr");
 
-      const confidence =
-        Number(data.confidence);
+      const confidence = Number(data?.confidence);
 
-      if (
-        Number.isFinite(confidence)
-      ) {
-        setAnalysisError(
-          `OCR completed successfully — ${confidence.toFixed(
-            1
-          )}% text recognition confidence. Please review the extracted text before analyzing.`
-        );
-      }
-
-    } catch (error) {
-      console.error(
-        "OCR failed:",
-        error
+      setInputNotice(
+        Number.isFinite(confidence) && confidence < 60
+          ? `Text extracted, but recognition confidence is low (${confidence.toFixed(0)}%). Please correct the text before analyzing.`
+          : "Text extracted from the image. Please check it before analyzing."
       );
-
+    } catch (error) {
+      console.error("OCR failed:", error);
       setAnalysisError(
         error.message ||
-          "OCR failed. Make sure the PaddleOCR server is running on port 8001."
+          "OCR failed. Please try a clearer image or type the report."
       );
     } finally {
+      if (worker) {
+        await worker.terminate().catch(() => {});
+      }
       setOcrLoading(false);
 
       // Allow the same image to be selected again.
@@ -685,6 +750,7 @@ export default function Employee() {
     setIogpRule("");
     setAnalysisError("");
     setSubmitError("");
+    setInputNotice("");
   };
 
   return (
@@ -1023,7 +1089,7 @@ export default function Employee() {
               }}
             >
               <Mic size={16} />
-              Voice
+              {isListening ? "Stop" : "Voice"}
             </button>
 
 
@@ -1148,7 +1214,7 @@ export default function Employee() {
 
                 <Upload size={16} />
 
-                Extracting text from image...
+                Reading text from image... {ocrProgress}%
 
               </motion.div>
             )}
@@ -1178,13 +1244,30 @@ export default function Employee() {
                 </label>
 
                 <span>
-                  Upload a handwritten or
-                  printed safety observation.
+                  Upload a clear photo of a printed or
+                  typed safety form. Handwriting may not
+                  be read accurately.
                 </span>
 
               </div>
             )}
 
+
+          {inputNotice && (
+            <div
+              style={{
+                marginTop: "10px",
+                padding: "10px 14px",
+                borderRadius: "8px",
+                background: "rgba(16, 185, 129, 0.12)",
+                border: "1px solid rgba(16, 185, 129, 0.4)",
+                color: "#6ee7b7",
+                fontSize: "13px"
+              }}
+            >
+              {inputNotice}
+            </div>
+          )}
 
           <AnimatePresence>
 

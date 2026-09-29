@@ -1,17 +1,10 @@
-﻿services:
+services:
   - type: web
     name: oil-guardian-ai-ml
     runtime: python
     plan: free
     buildCommand: pip install -r requirements.txt && python -m ml_modules.shared_embedder
     startCommand: uvicorn backend.api:app --host 0.0.0.0 --port $PORT
-
-  - type: web
-    name: oil-guardian-ai-ocr
-    runtime: python
-    plan: free
-    buildCommand: pip install -r requirements-ocr.txt
-    startCommand: uvicorn backend.ocr_api:app --host 0.0.0.0 --port $PORT
 
   - type: web
     name: oil-guardian-ai
@@ -22,8 +15,6 @@
     envVars:
       - key: VITE_API_URL
         value: https://oil-guardian-ai-ml.onrender.com
-      - key: VITE_OCR_API_URL
-        value: https://oil-guardian-ai-ocr.onrender.com
       - key: VITE_SUPABASE_URL
         sync: false
       - key: VITE_SUPABASE_PUBLISHABLE_KEY
