@@ -12,15 +12,15 @@ Team **LogicLoom_** (Team ID 178528)
 
 ## The problem
 
-Oil India Limited collects large volumes of Unsafe-Act / Unsafe-Condition observations, near-miss and incident reports, but they are reviewed manually, monthly or quarterly. Research cited in the problem statement shows that non-fatal accidents fell 51% over 15 years while fatalities fell only 25.5%: low-severity incidents don't share the causes of fatalities, and leading operators separately flag the ~20–25% of reports that carry genuine fatal potential.
+Oil India Limited collects large volumes of Unsafe-Act / Unsafe-Condition observations, near-miss and incident reports, but they are reviewed manually, monthly or quarterly. Research cited in the problem statement shows that in the US non-fatal accidents fell 51% over 15 years while fatalities fell only 25.5%: low-severity incidents don't share the causes of fatalities, and leading operators separately flag the ~20–25% of reports that carry genuine fatal potential.
 
 The problem statement asks for a prototype that, for every free-text report:
 
 | Requirement | OIL Guardian AI |
 |---|---|
-| **(a)** Classify as SIF-potential vs non-SIF | EEI-based SIF score: *control failure × high-energy check*, with the energy evidence shown |
-| **(b)** Tag the relevant IOGP Life-Saving Rule | Trained classifier over the 9 IOGP rules + "None", with confidence and top-3 |
-| **(c)** Dashboard ranking sites/activities by SIF-precursor density | SIF analytics: density rankings, site × rule heatmap, recurring high-energy hazards, weekly trend |
+| **(a)** Classify as SIF-potential vs non-SIF | EEI-based SIF score: *control failure × high-energy check*; the API also returns the high-energy evidence it found |
+| **(b)** Tag the relevant IOGP Life-Saving Rule | Trained classifier over the 9 IOGP rules + "None", with a confidence score |
+| **(c)** Dashboard ranking sites/activities by SIF-precursor density | SIF analytics: density rankings and charts, site × rule heatmap, recurring high-energy hazards, weekly trend |
 
 ## What it does
 
@@ -31,8 +31,8 @@ The problem statement asks for a prototype that, for every free-text report:
 - Transmits the report and tracks its review status
 
 **Safety officer**
-- **Report Feed:** every report, ranked and filterable by risk, type and status; per-model scores; status workflow with investigator, remarks and audit trail; confirms or corrects the report type
-- **SIF-Precursor Analytics:** SIF density by site, department and report type; site × Life-Saving Rule heatmap; recurring high-energy hazards; weekly trend
+- **Report Feed:** every report, ranked and filterable by risk, type and status; per-model scores; status workflow with investigator and remarks (each review recorded with the reviewer and time); confirms or corrects the report type
+- **SIF-Precursor Analytics:** charts for risk tiers, report types, review status and input channel; SIF density by site, department and report type; site × Life-Saving Rule heatmap; recurring high-energy hazards; weekly trend
 
 **Security**
 - Supabase authentication with row-level security: employees see only their own reports; only approved safety officers see and update all reports
@@ -75,17 +75,17 @@ flowchart LR
 
 It is a ranking score, not a calibrated probability. The near-miss and unsafe-condition model scores are still returned for transparency.
 
-**IOGP rule classifier (`ml_modules/iogp_rule/`).** Logistic regression on MiniLM embeddings, 9 IOGP Life-Saving Rules + "None". Low-confidence predictions are flagged for officer review.
+**IOGP rule classifier (`ml_modules/iogp_rule/`).** Logistic regression on MiniLM embeddings, 9 IOGP Life-Saving Rules + "None". The API returns the confidence, the top-3 rules and a low-confidence flag.
 
 **Report-type classifier (`ml_modules/report_type/`).** MiniLM embeddings + explainable cue words + logistic regression. Its output is a suggestion: the employee's answer and the officer's confirmation take priority, and both are stored for future retraining.
 
 ## Measured results
 
-All numbers come from reproducible scripts in `scripts/` and test sets that were never used for training.
+Models are built on **5,501 synthetic oil-and-gas reports** across 4 datasets (unsafe-act 3,443 · near-miss 799 · unsafe-condition 835 · field-style 424). All numbers below come from reproducible scripts in `scripts/` and test sets that were never used for training.
 
 | Component | Test | Result |
 |---|---|---|
-| SIF score | 72-report paired evaluation set (each dangerous report has a "controlled" twin: same job, controls in place) | AUC **0.73 → 0.82** vs the original soft-vote ensemble; recall **0.82**; precision **0.76**; accuracy **0.76** |
+| SIF score | 72 unseen reports: 30 dangerous/controlled pairs (same job, with and without controls) + 12 independent cases | AUC **0.73 → 0.82** vs the original soft-vote ensemble; recall **0.82**; precision **0.76**; F1 **0.79**; accuracy **0.76** |
 | IOGP rule classifier | Held-out 80/20 split (10 classes) | Accuracy **55%** (random ≈ 10%) |
 | | Strict grouped test (unseen hazard wording) | Accuracy **42%** |
 | | Independent 12-report test set | **8 / 12** |
