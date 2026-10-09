@@ -6,7 +6,9 @@ import {
   ArrowRight,
   LockKeyhole,
   Mail,
-  ArrowLeft
+  ArrowLeft,
+  Eye,
+  EyeOff
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
@@ -40,6 +42,7 @@ function Login() {
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
 
@@ -532,16 +535,40 @@ function Login() {
                       PASSWORD
                     </label>
 
-                    <input
-                      type="password"
-                      placeholder="Enter password"
-                      className="cursor-target"
-                      value={password}
-                      onChange={(e) =>
-                        setPassword(e.target.value)
-                      }
-                      autoComplete="current-password"
-                    />
+                    <div style={{ position: "relative" }}>
+                      <input
+                        type={showPassword ? "text" : "password"}
+                        placeholder="Enter password"
+                        className="cursor-target"
+                        value={password}
+                        onChange={(e) =>
+                          setPassword(e.target.value)
+                        }
+                        autoComplete="current-password"
+                        style={{ paddingRight: "42px" }}
+                      />
+                      <button
+                        type="button"
+                        className="cursor-target"
+                        onClick={() => setShowPassword((v) => !v)}
+                        aria-label={showPassword ? "Hide password" : "Show password"}
+                        title={showPassword ? "Hide password" : "Show password"}
+                        style={{
+                          position: "absolute",
+                          right: "10px",
+                          top: "50%",
+                          transform: "translateY(-50%)",
+                          background: "transparent",
+                          border: "none",
+                          padding: "4px",
+                          color: "#8996aa",
+                          cursor: "pointer",
+                          display: "flex"
+                        }}
+                      >
+                        {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
+                      </button>
+                    </div>
                   </div>
 
                   <div className="login-options">
@@ -946,16 +973,40 @@ function Login() {
                       CREATE PASSWORD
                     </label>
 
-                    <input
-                      type="password"
-                      placeholder="Create password"
-                      className="cursor-target"
-                      value={password}
-                      onChange={(e) =>
-                        setPassword(e.target.value)
-                      }
-                      autoComplete="new-password"
-                    />
+                    <div style={{ position: "relative" }}>
+                      <input
+                        type={showPassword ? "text" : "password"}
+                        placeholder="Create password"
+                        className="cursor-target"
+                        value={password}
+                        onChange={(e) =>
+                          setPassword(e.target.value)
+                        }
+                        autoComplete="new-password"
+                        style={{ paddingRight: "42px" }}
+                      />
+                      <button
+                        type="button"
+                        className="cursor-target"
+                        onClick={() => setShowPassword((v) => !v)}
+                        aria-label={showPassword ? "Hide password" : "Show password"}
+                        title={showPassword ? "Hide password" : "Show password"}
+                        style={{
+                          position: "absolute",
+                          right: "10px",
+                          top: "50%",
+                          transform: "translateY(-50%)",
+                          background: "transparent",
+                          border: "none",
+                          padding: "4px",
+                          color: "#8996aa",
+                          cursor: "pointer",
+                          display: "flex"
+                        }}
+                      >
+                        {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
+                      </button>
+                    </div>
                   </div>
 
                   {error && (
@@ -1068,16 +1119,40 @@ function Login() {
                       NEW PASSWORD
                     </label>
 
-                    <input
-                      type="password"
-                      placeholder="Enter new password"
-                      className="cursor-target"
-                      value={password}
-                      onChange={(e) =>
-                        setPassword(e.target.value)
-                      }
-                      autoComplete="new-password"
-                    />
+                    <div style={{ position: "relative" }}>
+                      <input
+                        type={showPassword ? "text" : "password"}
+                        placeholder="Enter new password"
+                        className="cursor-target"
+                        value={password}
+                        onChange={(e) =>
+                          setPassword(e.target.value)
+                        }
+                        autoComplete="new-password"
+                        style={{ paddingRight: "42px" }}
+                      />
+                      <button
+                        type="button"
+                        className="cursor-target"
+                        onClick={() => setShowPassword((v) => !v)}
+                        aria-label={showPassword ? "Hide password" : "Show password"}
+                        title={showPassword ? "Hide password" : "Show password"}
+                        style={{
+                          position: "absolute",
+                          right: "10px",
+                          top: "50%",
+                          transform: "translateY(-50%)",
+                          background: "transparent",
+                          border: "none",
+                          padding: "4px",
+                          color: "#8996aa",
+                          cursor: "pointer",
+                          display: "flex"
+                        }}
+                      >
+                        {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
+                      </button>
+                    </div>
                   </div>
 
                   {error && (
