@@ -6,7 +6,22 @@ Smart India Hackathon 2026 · Problem Statement **SIH26165** · Theme: Smart Aut
 Team **LogicLoom_** (Team ID 178528)
 
 🔗 **Live demo:** https://oil-guardian-ai-xxhn.onrender.com
-*(free hosting: the first request after a quiet period can take up to a minute while the server wakes up)*
+### 🔑 Demo access
+
+The live prototype has two ready-to-use demo accounts, one for each role. The login page also has **Use Employee demo** / **Use Safety Officer demo** buttons that fill these in for you.
+
+| Role | Email | Password | What you can try |
+|---|---|---|---|
+| Field Employee | `demo.employee@gmail.com` | `OilDemo@2026` | Submit a report by typing, voice or OCR; see the instant SIF score, risk tier and IOGP Life-Saving Rule; track review status |
+| Safety Officer | `demo.officer@gmail.com` | `OilDemo@2026` | Review all reports ranked by risk, update status and remarks, confirm report type, open the SIF-Precursor Analytics dashboard |
+
+**Quick demo flow**
+1. Sign in as **Employee**, then submit: *"Welder started cutting on crude pipeline without gas test and without hot work permit"*
+2. Look at the AI result: a high SIF score, the **Hot Work** rule and the energy evidence
+3. Sign out, sign in as **Safety Officer**, find the report at the top of the feed and update its status
+4. Open **SIF-Precursor Analytics** to see site and rule hotspots
+
+*(Demo accounts contain test data only. On free hosting, the first sign-in after a quiet period can take up to a minute while the server wakes up.)*
 
 ---
 
