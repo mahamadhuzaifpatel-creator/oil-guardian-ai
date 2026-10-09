@@ -14,6 +14,18 @@ import { motion, AnimatePresence } from "framer-motion";
 import { supabase } from "../lib/supabase";
 import { useAuth } from "../context/AuthContext";
 
+// Public demo accounts for evaluators (test data only)
+const DEMO_ACCOUNTS = {
+  employee: {
+    email: "demo.employee@gmail.com",
+    password: "OilDemo@2026"
+  },
+  officer: {
+    email: "demo.officer@gmail.com",
+    password: "OilDemo@2026"
+  }
+};
+
 function Login() {
   const [role, setRole] = useState("employee");
   // Opened from a password-reset email? (our own ?reset=1 marker survives
@@ -610,6 +622,57 @@ function Login() {
                     <ArrowRight size={19} />
                   </motion.button>
                 </form>
+
+                {/* ===== Demo access for evaluators ===== */}
+                <div
+                  style={{
+                    marginTop: "18px",
+                    padding: "14px",
+                    border: "1px dashed #3b82f6",
+                    borderRadius: "12px",
+                    background: "rgba(59,130,246,0.08)",
+                    fontSize: "13px"
+                  }}
+                >
+                  <strong style={{ display: "block", marginBottom: "8px" }}>
+                    Evaluator demo access
+                  </strong>
+
+                  <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
+                    {["employee", "officer"].map((demoRole) => (
+                      <button
+                        key={demoRole}
+                        type="button"
+                        className="cursor-target"
+                        onClick={() => {
+                          setRole(demoRole);
+                          setUsername(DEMO_ACCOUNTS[demoRole].email);
+                          setPassword(DEMO_ACCOUNTS[demoRole].password);
+                          clearMessages();
+                        }}
+                        style={{
+                          flex: 1,
+                          padding: "8px 10px",
+                          borderRadius: "8px",
+                          border: "1px solid #3b82f6",
+                          background: "transparent",
+                          color: "#3b82f6",
+                          fontWeight: 600,
+                          cursor: "pointer"
+                        }}
+                      >
+                        {demoRole === "employee"
+                          ? "Use Employee demo"
+                          : "Use Safety Officer demo"}
+                      </button>
+                    ))}
+                  </div>
+
+                  <p style={{ margin: "8px 0 0", opacity: 0.8 }}>
+                    Click a button to fill the login, then press Sign In.
+                    Demo accounts contain test data only.
+                  </p>
+                </div>
 
                 <div className="create-account-row">
                   <span>
